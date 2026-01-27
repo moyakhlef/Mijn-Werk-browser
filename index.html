@@ -96,9 +96,18 @@
         #scr-contactleiding .back-icon, #scr-scoit .back-icon, #scr-meldingmaken .back-icon, 
         #scr-werkinformatie .back-icon, #scr-handigelinks .back-icon, #scr-tradler .back-icon, 
         #scr-oranjekaart .back-icon, #scr-extrabeschikbaar .back-icon, #scr-begindatum .back-icon,
-        /* toegevoegd zodat dezelfde back-icon zichtbaar is op de twee nieuwe schermen */
         #scr-uren-totaal .back-icon, #scr-13weken .back-icon,
-        #scr-kaart .back-icon, #scr-loopwijzer .back-icon {
+        #scr-kaart .back-icon, #scr-loopwijzer .back-icon,
+        #scr-loopalgestart .back-icon, #scr-loopstarten .back-icon,
+        #scr-depotvandaag .back-icon, #scr-retailadres .back-icon,
+        #scr-depotvandaag .back-icon,
+        /* NIEUW: back-icon op de 7 nieuwe schermen van Handige links */
+        #scr-mijn-account .back-icon, #scr-mijnhr-1 .back-icon, #scr-web-1 .back-icon,
+        #scr-mijnhr-2 .back-icon, #scr-web-1 .back-icon, #scr-web-2 .back-icon, #scr-web-3 .back-icon,
+        #scr-web-4 .back-icon,
+        /* NIEUW: toegevoegde schermen voor depot en uitloggen en TAKEN en DEPOT 1e */
+        #scr-contact .back-icon, #scr-vandaagkaart .back-icon, #scr-contactleiding .back-icon, 
+        #scr-uitloggen .back-icon, #scr-taken .back-icon, #scr-depot-1e .back-icon {
             display: block;
         }
 
@@ -106,58 +115,81 @@
         #scr-oranjekaart .back-icon { top: 80px; }
         #scr-extrabeschikbaar .back-icon { top: 10px; }
         #scr-begindatum .back-icon { top: 25px; }
-	#scr-loopwijzer .back-icon { top: 25px; }
-	#scr-kaart .back-icon { top: 25px; }
+        #scr-loopwijzer .back-icon { top: 25px; }
+        #scr-kaart .back-icon { top: 25px; }
+        #scr-depotvandaag .back-icon { top: 5px; }
+        #scr-vandaagkaart .back-icon { top: 25px; }
+        #scr-contact .back-icon { top: 0%; left: 0px; width:100%; height:80.5%; }
+        #scr-taken .back-icon { top: 5px; } /* Standaard positie voor taken scherm */
+        
+        /* Positie back icon voor het nieuwe Depot 1e scherm (standaard linksboven, eventueel aanpassen) */
+        #scr-depot-1e .back-icon { top: 5px; left: 5px; }
+        
+        
         #scr-tradler .back-icon { top: auto; bottom: 0; left: 0; width: 20%; height: 12%; border-radius: 0; }
+        #scr-mijn-account .back-icon { top: auto; bottom: 0; left: 0; width: 20%; height: 12%; border-radius: 0; }
+        #scr-mijnhr-1 .back-icon { top: auto; bottom: 0; left: 0; width: 20%; height: 12%; border-radius: 0; }
+        #scr-mijnhr-2 .back-icon { top: auto; bottom: 0; left: 0; width: 20%; height: 12%; border-radius: 0; }
+        #scr-web-1 .back-icon { top: auto; bottom: 0; left: 0; width: 20%; height: 12%; border-radius: 0; }
+        #scr-web-2 .back-icon { top: auto; bottom: 0; left: 0; width: 20%; height: 12%; border-radius: 0; }
+        #scr-web-3 .back-icon { top: auto; bottom: 0; left: 0; width: 20%; height: 12%; border-radius: 0; }
+        #scr-web-4 .back-icon { top: auto; bottom: 0; left: 0; width: 20%; height: 12%; border-radius: 0; }
+
+        /* SPECIAAL: Back icon voor Uitloggen scherm (Midden in het scherm) */
+        #scr-uitloggen .back-icon {
+            top: 56.5%; left: 33%;
+            transform: translate(-50%, -50%);
+            width: 160px; /* Breder gemaakt zodat het op een knop lijkt */
+            height: 55px;
+            border-radius: 10px;
+        }
+
 
         /* =========================================
-           CUSTOM HOTSPOTS (JOUW SPECIFIEKE AFMETINGEN)
+           CUSTOM HOTSPOTS
            ========================================= */
         .custom-hotspot { position: absolute; z-index: 120; }
 
-        /* Vrij vragen tekst: Breder en 60px lager */
         #hotspot-vrijvragen-tekst { 
-            top: calc(12% + 60px); 
-            left: calc(5% - 5px);   /* 5px naar links */
-            width: calc(92% + 5px); /* 5px breder */
-            height: 60px; 
+            top: calc(12% + 60px); left: calc(5% - 5px);   
+            width: calc(92% + 5px); height: 60px;
         }
 
-        /* Datumveld: 5px breder, 10px smaller verticaal, 10px hoger */
         #hotspot-datumveld { 
-            top: 165px; 
-            left: (6% - 5px); 
-            width: calc(95% + 10px); 
-            height: 50px; 
+            top: 165px; left: (6% - 5px); 
+            width: calc(95% + 10px); height: 50px;
         }
 
-        /* Kalender kruisje: 20px naar links en 20px omhoog */
         #hotspot-kalender-sluiten { 
-            top: 155px; 
-            left: 23px; 
-            width: 45px; 
-            height: 45px; 
-            border-radius: 50%; 
+            top: 155px; left: 23px; 
+            width: 45px; height: 45px; border-radius: 50%; 
+        }
+        
+        /* NIEUWE HOTSPOT OP DEPOTS SCHERM */
+        #hotspot-depot-1e {
+            top: 72px;
+            left: 2%;
+            width: 95%;
+            height: 72px;
         }
 
         /* =========================================
            SERVICE & PROFIEL ITEMS
            ========================================= */
         .profile-item, .service-item { 
-            position: absolute; 
-            left: 15px; 
-            width: calc(100% - 30px); 
-            height: 58px; 
-            z-index: 110; 
-            border-radius: 10px; 
+            position: absolute; left: 15px; 
+            width: calc(100% - 30px); height: 58px; 
+            z-index: 110; border-radius: 10px;
         }
 
         /* Profiel items posities */
         #profiel-overdezeapp { top: 80px; } 
         #profiel-voorkeuren { top: 138px; } 
         #profiel-details { top: 196px; }
+        /* NIEUW: Uitloggen knop op profiel pagina (onderaan de lijst) */
+        #profiel-uitloggen { top: 280px; }
 
-        /* Service items posities */
+        /* Service items posities (origineel) */
         #service-berichten { top: 70px; } 
         #service-vrijvragen { top: 128px; } 
         #service-contactleiding { top: 191px; }
@@ -169,45 +201,100 @@
         #service-oranjekaart { top: 539px; }
         #service-extrabeschikbaar { top: 597px; }
 
+        /* NIEUW: 7 hotspots posities op scr-handigelinks (onder elkaar) */
+        #handig-mijn-account   { top: 55px; }
+        #handig-mijnhr-1       { top: 112px; }
+        #handig-web-1          { top: 171px; }
+        #handig-mijnhr-2       { top: 229px; }
+        #handig-web-2          { top: 289px; }
+        #handig-web-3          { top: 344px; }
+        #handig-web-4          { top: 400px; }
+
         /* =========================================
            TOEGEVOEGDE HOTSPOTS VOOR SCHERM ROOSTER
            ========================================= */
         #hotspot-urentotaal {
-            top: 75px;
-            left: 22%;
-            width: 25%;
-            height: 4%;
-            position: absolute;
-            z-index: 125;
-            cursor: pointer;
+            top: 75px; left: 22%;
+            width: 25%; height: 4%;
+            position: absolute; z-index: 125; cursor: pointer;
         }
 
         #hotspot-13weken {
-            top: 75px;
-            left: 55%;
-            width: 22.8%;
-            height: 4%;
-            position: absolute;
-            z-index: 125;
-            cursor: pointer;
+            top: 75px; left: 55%;
+            width: 22.8%; height: 4%;
+            position: absolute; z-index: 125; cursor: pointer;
         }
 
         /* =========================================
            NIEUWE HOTSPOTS OP BIEDEN
            ========================================= */
         #hotspot-bieden-links {
-            top: 267px;
-            left: 51%;
-            width: 10%;
-            height: 40px;
+            top: 267px; left: 51%;
+            width: 10%; height: 40px;
         }
 
         #hotspot-bieden-rechts {
-            top: 267px;
-            left: 61%;
-            width: 10%;
-            height: 40px;
+            top: 267px; left: 61%;
+            width: 10%; height: 40px;
         }
+
+        /* =========================================
+           NIEUWE HOTSPOTS OP VANDAAG
+           ========================================= */
+        #hotspot-vandaag-loopalgestart {
+            top: 34.5%; left: 4%;
+            width: 93%; height: 5.5%;
+        }
+
+        #hotspot-vandaag-loopstarten {
+            top: 57.5%; left: 4%;
+            width: 93%; height: 5.5%;
+        }
+        
+        /* Hotspot midden boven op Vandaag naar TAKEN */
+        #hotspot-vandaag-taken {
+            top: 5px; left: 86%;
+            transform: translateX(-50%);
+            width: 10%;
+            height: 50px;
+        }
+
+        /* =========================================
+           NIEUWE HOTSPOTS OP LOOPALGESTART
+           ========================================= */
+        #hotspot-loopalgestart-depotvandaag {
+            top: 22.5%; left: 3.5%;
+            width: 94%; height: 7%;
+        }
+
+        #hotspot-loopalgestart-retailadres {
+            top: 29.5%; left: 3.5%;
+            width: 94%; height: 7%;
+        }
+
+        /* Hotspot rechtsboven op Loopalgestart naar VANDAAGKAART */
+        #hotspot-loop-kaart {
+            top: 15px; right: 15px;
+            width: 50px;
+            height: 50px;
+        }
+
+        /* =========================================
+           NIEUWE HOTSPOTS OP DEPOT VANDAAG
+           ========================================= */
+        /* Pas top/left/width/height aan op basis van waar de knoppen in de afbeelding zitten */
+        #hotspot-depot-contact {
+            top: 37%; left: 84.7%;
+            width: 10%; 
+            height: 5%;
+        }
+
+        #hotspot-depot-kaart {
+            top: 50.5%; left: 69%;
+            width: 10%; 
+            height: 5%;
+        }
+
 
         /* Warning Box */
         .warning-box {
@@ -226,8 +313,22 @@
             z-index: 2000;
             font-family: Arial, sans-serif;
         }
-        #scr-tradler.active ~ .warning-box { display: block; }
-        @media (max-width: 1000px) { .warning-box { left: 50%; transform: translate(-50%, -50%); width: 85%; } }
+
+        /* Warning zichtbaar op Tradler + de 7 nieuwe schermen */
+        #scr-tradler.active ~ .warning-box,
+        #scr-mijn-account.active ~ .warning-box,
+        #scr-mijnhr-1.active ~ .warning-box,
+        #scr-web-1.active ~ .warning-box,
+        #scr-mijnhr-2.active ~ .warning-box,
+        #scr-web-2.active ~ .warning-box,
+        #scr-web-3.active ~ .warning-box,
+        #scr-web-4.active ~ .warning-box {
+            display: block;
+        }
+
+        @media (max-width: 1000px) { 
+            .warning-box { left: 50%; transform: translate(-50%, -50%); width: 85%; } 
+        }
     </style>
 </head>
 <body>
@@ -235,8 +336,14 @@
 <div class="app-container">
 
     <div id="scr-vandaag" class="screen active">
-        <img src="vandaag.png" alt="Vandaag">
+        <img src="img/Vandaag.jpeg" alt="Vandaag">
         <div class="profile-icon" onclick="goTo('scr-profiel')"></div>
+
+        <div class="custom-hotspot" id="hotspot-vandaag-loopalgestart" onclick="goTo('scr-loopalgestart')" title="Loop al gestart"></div>
+        <div class="custom-hotspot" id="hotspot-vandaag-loopstarten" onclick="goTo('scr-loopstarten')" title="Loop starten"></div>
+        
+        <div class="custom-hotspot" id="hotspot-vandaag-taken" onclick="goTo('scr-taken')" title="Taken"></div>
+
         <div class="nav-bar">
             <div class="hotspot" onclick="goTo('scr-vandaag')"></div>
             <div class="hotspot" onclick="goTo('scr-depots')"></div>
@@ -246,9 +353,29 @@
         </div>
     </div>
 
+    <div id="scr-taken" class="screen">
+        <img src="img/taken.jpeg" alt="Taken">
+        <div class="back-icon" onclick="goBack()"></div>
+    </div>
+
     <div id="scr-depots" class="screen">
-        <img src="depots.png" alt="Depots">
+        <img src="img/depots.png" alt="Depots">
         <div class="profile-icon" onclick="goTo('scr-profiel')"></div>
+        
+        <div class="custom-hotspot" id="hotspot-depot-1e" onclick="goTo('scr-depot-1e')" title="Naar Depot 1e"></div>
+        
+        <div class="nav-bar">
+            <div class="hotspot" onclick="goTo('scr-vandaag')"></div>
+            <div class="hotspot" onclick="goTo('scr-depots')"></div>
+            <div class="hotspot" onclick="goTo('scr-rooster')"></div>
+            <div class="hotspot" onclick="goTo('scr-bieden')"></div>
+            <div class="hotspot" onclick="goTo('scr-service')"></div>
+        </div>
+    </div>
+
+    <div id="scr-depot-1e" class="screen">
+        <img src="img/Depot 1e.jpeg" alt="Depot 1e">
+        <div class="back-icon" onclick="goBack()"></div>
         <div class="nav-bar">
             <div class="hotspot" onclick="goTo('scr-vandaag')"></div>
             <div class="hotspot" onclick="goTo('scr-depots')"></div>
@@ -259,15 +386,14 @@
     </div>
 
     <div id="scr-rooster" class="screen">
-        <img src="Rooster.jpeg" alt="Rooster">
+        <img src="img/Rooster.jpeg" alt="Rooster">
         <div class="profile-icon" onclick="goTo('scr-profiel')"></div>
 
-        <!-- AANGEPASTE hotspots op Rooster -->
         <div class="custom-hotspot" id="hotspot-urentotaal" onclick="goTo('scr-uren-totaal')" title="Uren totaal"></div>
         <div class="custom-hotspot" id="hotspot-13weken" onclick="goTo('scr-13weken')" title="13 weken gemiddelde"></div>
 
         <div class="nav-bar">
-            <div class="hotspot" onclick="goTo('scr-vandaag')"></div>
+             <div class="hotspot" onclick="goTo('scr-vandaag')"></div>
             <div class="hotspot" onclick="goTo('scr-depots')"></div>
             <div class="hotspot" onclick="goTo('scr-rooster')"></div>
             <div class="hotspot" onclick="goTo('scr-bieden')"></div>
@@ -276,10 +402,9 @@
     </div>
 
     <div id="scr-bieden" class="screen">
-        <img src="Bieden.jpeg" alt="Bieden">
+        <img src="img/Bieden.jpeg" alt="Bieden">
         <div class="profile-icon" onclick="goTo('scr-profiel')"></div>
 
-        <!-- NIEUWE KLIKZONES OP BIEDEN -->
         <div class="custom-hotspot" id="hotspot-bieden-links" onclick="goTo('scr-kaart')" title="Kaart"></div>
         <div class="custom-hotspot" id="hotspot-bieden-rechts" onclick="goTo('scr-loopwijzer')" title="Loopwijzer"></div>
 
@@ -293,7 +418,7 @@
     </div>
 
     <div id="scr-service" class="screen">
-        <img src="Service.jpeg" alt="Service">
+        <img src="img/Service.jpeg" alt="Service">
         <div class="profile-icon" onclick="goTo('scr-profiel')"></div>
         
         <div class="service-item" id="service-berichten" onclick="goTo('scr-berichten')"></div>
@@ -317,11 +442,25 @@
     </div>
 
     <div id="scr-profiel" class="screen">
-        <img src="Profiel.jpeg" alt="Profiel">
+        <img src="img/Profiel.jpeg" alt="Profiel">
         <div class="back-icon" onclick="goBack()"></div>
         <div class="profile-item" id="profiel-overdezeapp" onclick="goTo('scr-overdezeapp')"></div>
         <div class="profile-item" id="profiel-voorkeuren" onclick="goTo('scr-voorkeuren')"></div>
         <div class="profile-item" id="profiel-details" onclick="goTo('scr-profieldetails')"></div>
+        <div class="profile-item" id="profiel-uitloggen" onclick="goTo('scr-uitloggen')"></div>
+
+        <div class="nav-bar">
+            <div class="hotspot" onclick="goTo('scr-vandaag')"></div>
+            <div class="hotspot" onclick="goTo('scr-depots')"></div>
+            <div class="hotspot" onclick="goTo('scr-rooster')"></div>
+            <div class="hotspot" onclick="goTo('scr-bieden')"></div>
+            <div class="hotspot" onclick="goTo('scr-service')"></div>
+        </div>
+    </div>
+
+    <div id="scr-uitloggen" class="screen">
+        <img src="img/uitloggen.jpeg" alt="Uitloggen">
+        <div class="back-icon" onclick="goBack()"></div>
         <div class="nav-bar">
             <div class="hotspot" onclick="goTo('scr-vandaag')"></div>
             <div class="hotspot" onclick="goTo('scr-depots')"></div>
@@ -332,7 +471,7 @@
     </div>
 
     <div id="scr-overdezeapp" class="screen">
-        <img src="Over deze app.jpeg" alt="Over deze app">
+        <img src="img/Over deze app.jpeg" alt="Over deze app">
         <div class="back-icon" onclick="goBack()"></div>
         <div class="nav-bar">
             <div class="hotspot" onclick="goTo('scr-vandaag')"></div>
@@ -344,7 +483,7 @@
     </div>
 
     <div id="scr-voorkeuren" class="screen">
-        <img src="Voorkeuren.jpeg" alt="Voorkeuren">
+        <img src="img/Voorkeuren.jpeg" alt="Voorkeuren">
         <div class="back-icon" onclick="goBack()"></div>
         <div class="nav-bar">
             <div class="hotspot" onclick="goTo('scr-vandaag')"></div>
@@ -356,7 +495,7 @@
     </div>
 
     <div id="scr-profieldetails" class="screen">
-        <img src="Profiel details.jpg" alt="Profiel details">
+        <img src="img/Profiel details.jpg" alt="Profiel details">
         <div class="back-icon" onclick="goBack()"></div>
         <div class="nav-bar">
             <div class="hotspot" onclick="goTo('scr-vandaag')"></div>
@@ -368,7 +507,7 @@
     </div>
 
     <div id="scr-berichten" class="screen">
-        <img src="Berichten.jpeg" alt="Berichten">
+        <img src="img/Berichten.jpeg" alt="Berichten">
         <div class="back-icon" onclick="goBack()"></div>
         <div class="nav-bar">
             <div class="hotspot" onclick="goTo('scr-vandaag')"></div>
@@ -380,7 +519,7 @@
     </div>
 
     <div id="scr-contactleiding" class="screen">
-        <img src="Contact leidinggevenden.jpeg" alt="Contact leidinggevenden">
+        <img src="img/Contact leidinggevenden.jpeg" alt="Contact leidinggevenden">
         <div class="back-icon" onclick="goBack()"></div>
         <div class="nav-bar">
             <div class="hotspot" onclick="goTo('scr-vandaag')"></div>
@@ -392,7 +531,7 @@
     </div>
 
     <div id="scr-scoit" class="screen">
-        <img src="SCO IT en HR.jpeg" alt="SCO IT en HR">
+        <img src="img/SCO IT en HR.jpeg" alt="SCO IT en HR">
         <div class="back-icon" onclick="goBack()"></div>
         <div class="nav-bar">
             <div class="hotspot" onclick="goTo('scr-vandaag')"></div>
@@ -404,7 +543,7 @@
     </div>
 
     <div id="scr-meldingmaken" class="screen">
-        <img src="Melding maken.jpeg" alt="Melding maken">
+        <img src="img/Melding maken.jpeg" alt="Melding maken">
         <div class="back-icon" onclick="goBack()"></div>
         <div class="nav-bar">
             <div class="hotspot" onclick="goTo('scr-vandaag')"></div>
@@ -416,7 +555,7 @@
     </div>
 
     <div id="scr-werkinformatie" class="screen">
-        <img src="Werk informatie.jpeg" alt="Werk informatie">
+        <img src="img/Werk informatie.jpeg" alt="Werk informatie">
         <div class="back-icon" onclick="goBack()"></div>
         <div class="nav-bar">
             <div class="hotspot" onclick="goTo('scr-vandaag')"></div>
@@ -428,8 +567,17 @@
     </div>
 
     <div id="scr-handigelinks" class="screen">
-        <img src="Handige links.jpeg" alt="Handige links">
+        <img src="img/Handige links.jpeg" alt="Handige links">
         <div class="back-icon" onclick="goBack()"></div>
+        
+        <div class="service-item" id="handig-mijn-account" onclick="goTo('scr-mijn-account')"></div>
+        <div class="service-item" id="handig-mijnhr-1" onclick="goTo('scr-mijnhr-1')"></div>
+        <div class="service-item" id="handig-web-1" onclick="goTo('scr-web-1')"></div>
+        <div class="service-item" id="handig-mijnhr-2" onclick="goTo('scr-mijnhr-2')"></div>
+        <div class="service-item" id="handig-web-2" onclick="goTo('scr-web-2')"></div>
+        <div class="service-item" id="handig-web-3" onclick="goTo('scr-web-3')"></div>
+        <div class="service-item" id="handig-web-4" onclick="goTo('scr-web-4')"></div>
+
         <div class="nav-bar">
             <div class="hotspot" onclick="goTo('scr-vandaag')"></div>
             <div class="hotspot" onclick="goTo('scr-depots')"></div>
@@ -439,8 +587,18 @@
         </div>
     </div>
 
+    <div id="scr-tradler" class="screen">
+        <img src="img/Tradler.jpeg" alt="Tradler">
+        <div class="back-icon" onclick="goBack()"></div>
+    </div>
+
+    <div id="scr-oranjekaart" class="screen">
+        <img src="img/Oranje Kaart.jpeg" alt="Oranje Kaart">
+        <div class="back-icon" onclick="goBack()"></div>
+    </div>
+
     <div id="scr-extrabeschikbaar" class="screen">
-        <img src="Extra beschikbaar.jpeg" alt="Extra beschikbaar">
+        <img src="img/Extra beschikbaar.jpeg" alt="Extra beschikbaar">
         <div class="back-icon" onclick="goBack()"></div>
         <div class="nav-bar">
             <div class="hotspot" onclick="goTo('scr-vandaag')"></div>
@@ -452,7 +610,7 @@
     </div>
 
     <div id="scr-vrijvragen" class="screen">
-        <img src="Vrij vragen.jpeg" alt="Vrij vragen">
+        <img src="img/Vrij vragen.jpeg" alt="Vrij vragen">
         <div class="back-icon" onclick="goTo('scr-service')"></div>
         
         <div class="custom-hotspot" id="hotspot-vrijvragen-tekst" onclick="goTo('scr-begindatum')"></div>
@@ -466,63 +624,199 @@
         </div>
     </div>
 
-    <div id="scr-oranjekaart" class="screen">
-        <img src="Oranje Kaart.jpeg" alt="Oranje Kaart">
-        <div class="back-icon" onclick="goBack()"></div>
-    </div>
-
-    <div id="scr-tradler" class="screen">
-        <img src="Tradler.jpeg" alt="Tradler">
-        <div class="back-icon" onclick="goBack()"></div>
-    </div>
-
     <div id="scr-begindatum" class="screen">
-        <img src="Begin datum.jpeg" alt="Begin datum">
+        <img src="img/Begin datum.jpeg" alt="Begin datum">
         <div class="back-icon" onclick="goTo('scr-vrijvragen')"></div>
         <div class="custom-hotspot" id="hotspot-datumveld" onclick="goTo('scr-verlofkalender')"></div>
+        <div class="nav-bar">
+            <div class="hotspot" onclick="goTo('scr-vandaag')"></div>
+            <div class="hotspot" onclick="goTo('scr-depots')"></div>
+            <div class="hotspot" onclick="goTo('scr-rooster')"></div>
+            <div class="hotspot" onclick="goTo('scr-bieden')"></div>
+            <div class="hotspot" onclick="goTo('scr-service')"></div>
+        </div>
     </div>
 
     <div id="scr-verlofkalender" class="screen">
-        <img src="Verlof kalender.jpeg" alt="Verlof kalender">
+        <img src="img/Verlof kalender.jpeg" alt="Verlof kalender">
         <div class="custom-hotspot" id="hotspot-kalender-sluiten" onclick="goTo('scr-begindatum')"></div>
+        <div class="nav-bar">
+            <div class="hotspot" onclick="goTo('scr-vandaag')"></div>
+            <div class="hotspot" onclick="goTo('scr-depots')"></div>
+            <div class="hotspot" onclick="goTo('scr-rooster')"></div>
+            <div class="hotspot" onclick="goTo('scr-bieden')"></div>
+            <div class="hotspot" onclick="goTo('scr-service')"></div>
+        </div>
     </div>
 
-    <!-- =========================
-         TOEGEVOEGDE SCHERMEN
-         ========================= -->
     <div id="scr-uren-totaal" class="screen">
-        <img src="Uren totaal.jpeg" alt="Uren totaal">
+        <img src="img/Uren totaal.jpeg" alt="Uren totaal">
         <div class="back-icon" onclick="goTo('scr-rooster')" title="Terug naar Rooster"></div>
+        <div class="nav-bar">
+            <div class="hotspot" onclick="goTo('scr-vandaag')"></div>
+            <div class="hotspot" onclick="goTo('scr-depots')"></div>
+            <div class="hotspot" onclick="goTo('scr-rooster')"></div>
+            <div class="hotspot" onclick="goTo('scr-bieden')"></div>
+            <div class="hotspot" onclick="goTo('scr-service')"></div>
+        </div>
     </div>
 
     <div id="scr-13weken" class="screen">
-        <img src="13e weeks gemiddelde.jpeg" alt="13e weeks gemiddelde">
+        <img src="img/13e weeks gemiddelde.jpeg" alt="13e weeks gemiddelde">
         <div class="back-icon" onclick="goTo('scr-rooster')" title="Terug naar Rooster"></div>
+        <div class="nav-bar">
+            <div class="hotspot" onclick="goTo('scr-vandaag')"></div>
+            <div class="hotspot" onclick="goTo('scr-depots')"></div>
+            <div class="hotspot" onclick="goTo('scr-rooster')"></div>
+            <div class="hotspot" onclick="goTo('scr-bieden')"></div>
+            <div class="hotspot" onclick="goTo('scr-service')"></div>
+        </div>
     </div>
 
-    <!-- NIEUW: Kaart -->
     <div id="scr-kaart" class="screen">
-        <img src="Kaart.jpeg" alt="Kaart">
+        <img src="img/Kaart.jpeg" alt="Kaart">
         <div class="back-icon" onclick="goTo('scr-bieden')" title="Terug naar Bieden"></div>
+        <div class="nav-bar">
+            <div class="hotspot" onclick="goTo('scr-vandaag')"></div>
+            <div class="hotspot" onclick="goTo('scr-depots')"></div>
+            <div class="hotspot" onclick="goTo('scr-rooster')"></div>
+            <div class="hotspot" onclick="goTo('scr-bieden')"></div>
+            <div class="hotspot" onclick="goTo('scr-service')"></div>
+        </div>
     </div>
 
-    <!-- NIEUW: Loopwijzer -->
     <div id="scr-loopwijzer" class="screen">
-        <img src="Loopwijzer.jpeg" alt="Loopwijzer">
+        <img src="img/Loopwijzer.jpeg" alt="Loopwijzer">
         <div class="back-icon" onclick="goTo('scr-bieden')" title="Terug naar Bieden"></div>
+        <div class="nav-bar">
+            <div class="hotspot" onclick="goTo('scr-vandaag')"></div>
+            <div class="hotspot" onclick="goTo('scr-depots')"></div>
+            <div class="hotspot" onclick="goTo('scr-rooster')"></div>
+            <div class="hotspot" onclick="goTo('scr-bieden')"></div>
+            <div class="hotspot" onclick="goTo('scr-service')"></div>
+        </div>
+    </div>
+
+    <div id="scr-loopalgestart" class="screen">
+        <img src="img/Loopalgestart.jpeg" alt="Loop al gestart">
+        <div class="back-icon" onclick="goTo('scr-vandaag')"></div>
+
+        <div class="custom-hotspot" id="hotspot-loopalgestart-depotvandaag" onclick="goTo('scr-depotvandaag')"></div>
+        <div class="custom-hotspot" id="hotspot-loopalgestart-retailadres" onclick="goTo('scr-retailadres')"></div>
+        
+        <div class="custom-hotspot" id="hotspot-loop-kaart" onclick="goTo('scr-vandaagkaart')"></div>
+
+        <div class="nav-bar">
+            <div class="hotspot" onclick="goTo('scr-vandaag')"></div>
+            <div class="hotspot" onclick="goTo('scr-depots')"></div>
+            <div class="hotspot" onclick="goTo('scr-rooster')"></div>
+            <div class="hotspot" onclick="goTo('scr-bieden')"></div>
+            <div class="hotspot" onclick="goTo('scr-service')"></div>
+        </div>
+    </div>
+
+    <div id="scr-loopstarten" class="screen">
+        <img src="img/Loopstarten.jpeg" alt="Loop starten">
+        <div class="back-icon" onclick="goTo('scr-vandaag')"></div>
+
+        <div class="nav-bar">
+            <div class="hotspot" onclick="goTo('scr-vandaag')"></div>
+            <div class="hotspot" onclick="goTo('scr-depots')"></div>
+            <div class="hotspot" onclick="goTo('scr-rooster')"></div>
+            <div class="hotspot" onclick="goTo('scr-bieden')"></div>
+            <div class="hotspot" onclick="goTo('scr-service')"></div>
+        </div>
+    </div>
+
+    <div id="scr-depotvandaag" class="screen">
+        <img src="img/Depotvandaag.jpeg" alt="Depot vandaag">
+        <div class="back-icon" onclick="goTo('scr-loopalgestart')"></div>
+        
+        <div class="custom-hotspot" id="hotspot-depot-contact" onclick="goTo('scr-contact')"></div>
+        <div class="custom-hotspot" id="hotspot-depot-kaart" onclick="goTo('scr-vandaagkaart')"></div>
+
+        <div class="nav-bar">
+            <div class="hotspot" onclick="goTo('scr-vandaag')"></div>
+            <div class="hotspot" onclick="goTo('scr-depots')"></div>
+            <div class="hotspot" onclick="goTo('scr-rooster')"></div>
+            <div class="hotspot" onclick="goTo('scr-bieden')"></div>
+            <div class="hotspot" onclick="goTo('scr-service')"></div>
+        </div>
+    </div>
+
+    <div id="scr-contact" class="screen">
+        <img src="img/contact.jpeg" alt="Contact">
+        <div class="back-icon" onclick="goBack()"></div>
+    </div>
+
+    <div id="scr-vandaagkaart" class="screen">
+        <img src="img/vandaagkaart.jpeg" alt="Vandaag Kaart">
+        <div class="back-icon" onclick="goBack()"></div>
+    </div>
+
+    <div id="scr-retailadres" class="screen">
+        <img src="img/Retailadres.jpeg" alt="Retail adres">
+        <div class="back-icon" onclick="goTo('scr-loopalgestart')"></div>
+
+        <div class="nav-bar">
+            <div class="hotspot" onclick="goTo('scr-vandaag')"></div>
+            <div class="hotspot" onclick="goTo('scr-depots')"></div>
+            <div class="hotspot" onclick="goTo('scr-rooster')"></div>
+            <div class="hotspot" onclick="goTo('scr-bieden')"></div>
+            <div class="hotspot" onclick="goTo('scr-service')"></div>
+        </div>
+    </div>
+
+    <div id="scr-mijn-account" class="screen">
+        <img src="img/mijn-account.jpeg" alt="Mijn Account">
+        <div class="back-icon" onclick="goBack()"></div>
+    </div>
+
+    <div id="scr-mijnhr-1" class="screen">
+        <img src="img/mijnhr.jpeg" alt="Mijn HR">
+        <div class="back-icon" onclick="goBack()"></div>
+    </div>
+
+    <div id="scr-web-1" class="screen">
+        <img src="img/web.jpeg" alt="Web">
+        <div class="back-icon" onclick="goBack()"></div>
+    </div>
+
+    <div id="scr-mijnhr-2" class="screen">
+        <img src="img/mijnhr.jpeg" alt="Mijn HR">
+        <div class="back-icon" onclick="goBack()"></div>
+    </div>
+
+    <div id="scr-web-2" class="screen">
+        <img src="img/web.jpeg" alt="Web">
+        <div class="back-icon" onclick="goBack()"></div>
+    </div>
+
+    <div id="scr-web-3" class="screen">
+        <img src="img/web.jpeg" alt="Web">
+        <div class="back-icon" onclick="goBack()"></div>
+    </div>
+
+    <div id="scr-web-4" class="screen">
+        <img src="img/web.jpeg" alt="Web">
+        <div class="back-icon" onclick="goBack()"></div>
     </div>
 
     <div class="warning-box">
         <p><strong>Let op:</strong> je hebt de Mijn Werk app verlaten. Je bevindt je nu in de webbrowser van je smartphone.</p>
         <button onclick="goBack()">Terug naar de Mijn Werk app</button>
     </div>
+
 </div>
 
 <script>
     function goTo(screenId) {
         document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
         const target = document.getElementById(screenId);
-        if(target) { target.classList.add('active'); window.scrollTo(0, 0); }
+        if(target) { 
+            target.classList.add('active');
+            window.scrollTo(0, 0); 
+        }
     }
 
     function goBack() {
@@ -533,7 +827,20 @@
         if (id === 'scr-begindatum') goTo('scr-vrijvragen');
         else if (['scr-overdezeapp', 'scr-voorkeuren', 'scr-profieldetails'].includes(id)) goTo('scr-profiel');
         else if (id === 'scr-profiel') goTo('scr-vandaag');
+        else if (id === 'scr-vrijvragen') goTo('scr-service');
+        else if (id === 'scr-loopalgestart' || id === 'scr-loopstarten') goTo('scr-vandaag');
+        else if (id === 'scr-depotvandaag' || id === 'scr-retailadres') goTo('scr-loopalgestart');
+        else if (['scr-mijn-account', 'scr-mijnhr-1', 'scr-web-1', 'scr-mijnhr-2', 'scr-web-2', 'scr-web-3', 'scr-web-4'].includes(id)) goTo('scr-handigelinks');
+        // NIEUW: Logica voor terugknoppen van nieuwe schermen
+        else if (id === 'scr-contact') goTo('scr-depotvandaag');
+        else if (id === 'scr-vandaagkaart') goTo('scr-depotvandaag');
+        else if (id === 'scr-uitloggen') goTo('scr-profiel');
+        else if (id === 'scr-taken') goTo('scr-vandaag');
+        // NIEUW: Terug van Depot 1e naar Depots overzicht
+        else if (id === 'scr-depot-1e') goTo('scr-depots');
+
         else goTo('scr-service');
+        // fallback voor andere service-schermen
     }
 </script>
 </body>
