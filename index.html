@@ -94,20 +94,30 @@
         #scr-profiel .back-icon, #scr-overdezeapp .back-icon, #scr-voorkeuren .back-icon, 
         #scr-profieldetails .back-icon, #scr-berichten .back-icon, #scr-vrijvragen .back-icon, 
         #scr-contactleiding .back-icon, #scr-scoit .back-icon, #scr-meldingmaken .back-icon, 
-        #scr-werkinformatie .back-icon, #scr-handigelinks .back-icon, #scr-tradler .back-icon, 
+        #scr-werkinformatie .back-icon, #scr-handigelinks .back-icon, #scr-tradler .back-icon,
+	#scr-mijn-account .back-icon,
+	#scr-mijnhr-1 .back-icon,
+	#scr-mijnhr-2 .back-icon,
+	#scr-web-1 .back-icon,
+	#scr-web-2 .back-icon,
+	#scr-web-3 .back-icon,
+	#scr-web-4 .back-icon,
+	#scr-mijn-account .back-icon,
+
         #scr-oranjekaart .back-icon, #scr-extrabeschikbaar .back-icon, #scr-begindatum .back-icon,
         #scr-uren-totaal .back-icon, #scr-13weken .back-icon,
         #scr-kaart .back-icon, #scr-loopwijzer .back-icon,
         #scr-loopalgestart .back-icon, #scr-loopstarten .back-icon,
         #scr-depotvandaag .back-icon, #scr-retailadres .back-icon,
-        #scr-depotvandaag .back-icon,
-        /* NIEUW: back-icon op de 7 nieuwe schermen van Handige links */
-        #scr-mijn-account .back-icon, #scr-mijnhr-1 .back-icon, #scr-web-1 .back-icon,
-        #scr-mijnhr-2 .back-icon, #scr-web-1 .back-icon, #scr-web-2 .back-icon, #scr-web-3 .back-icon,
-        #scr-web-4 .back-icon,
-        /* NIEUW: toegevoegde schermen voor depot en uitloggen en TAKEN en DEPOT 1e */
         #scr-contact .back-icon, #scr-vandaagkaart .back-icon, #scr-contactleiding .back-icon, 
-        #scr-uitloggen .back-icon, #scr-taken .back-icon, #scr-depot-1e .back-icon {
+        #scr-uitloggen .back-icon, #scr-taken .back-icon, #scr-depot-1e .back-icon,
+        /* NIEUW toegevoegd voor de drie nieuwe verlof-schermen */
+        #scr-verlof-goedgekeurd .back-icon,
+        #scr-verlof-goedgekeurd2 .back-icon,
+        #scr-verlof-geannuleerd .back-icon,
+        /* NIEUW voor verzoek 1 & 2 */
+        #scr-contact2 .back-icon,
+        #scr-vertrouwenspersonen .back-icon {
             display: block;
         }
 
@@ -120,30 +130,31 @@
         #scr-depotvandaag .back-icon { top: 5px; }
         #scr-vandaagkaart .back-icon { top: 25px; }
         #scr-contact .back-icon { top: 0%; left: 0px; width:100%; height:80.5%; }
-        #scr-taken .back-icon { top: 5px; } /* Standaard positie voor taken scherm */
-        
-        /* Positie back icon voor het nieuwe Depot 1e scherm (standaard linksboven, eventueel aanpassen) */
+        #scr-taken .back-icon { top: 5px; }
         #scr-depot-1e .back-icon { top: 5px; left: 5px; }
+        #scr-contact2 .back-icon { top: 0%; left: 0px; width:100%; height:80.5%; }
         
-        
-        #scr-tradler .back-icon { top: auto; bottom: 0; left: 0; width: 20%; height: 12%; border-radius: 0; }
-        #scr-mijn-account .back-icon { top: auto; bottom: 0; left: 0; width: 20%; height: 12%; border-radius: 0; }
-        #scr-mijnhr-1 .back-icon { top: auto; bottom: 0; left: 0; width: 20%; height: 12%; border-radius: 0; }
-        #scr-mijnhr-2 .back-icon { top: auto; bottom: 0; left: 0; width: 20%; height: 12%; border-radius: 0; }
-        #scr-web-1 .back-icon { top: auto; bottom: 0; left: 0; width: 20%; height: 12%; border-radius: 0; }
-        #scr-web-2 .back-icon { top: auto; bottom: 0; left: 0; width: 20%; height: 12%; border-radius: 0; }
-        #scr-web-3 .back-icon { top: auto; bottom: 0; left: 0; width: 20%; height: 12%; border-radius: 0; }
-        #scr-web-4 .back-icon { top: auto; bottom: 0; left: 0; width: 20%; height: 12%; border-radius: 0; }
+        #scr-tradler .back-icon,
+	#scr-mijn-account .back-icon,
+        #scr-vertrouwenspersonen .back-icon,
+        #scr-mijn-account .back-icon,
+        #scr-mijnhr-1 .back-icon,
+        #scr-web-1 .back-icon,
+        #scr-mijnhr-2 .back-icon,
+        #scr-web-2 .back-icon,
+        #scr-web-3 .back-icon,
+        #scr-web-4 .back-icon { 
+            top: auto; bottom: 0; left: 0; width: 20%; height: 12%; border-radius: 0; 
+        }
 
-        /* SPECIAAL: Back icon voor Uitloggen scherm (Midden in het scherm) */
+        /* SPECIAAL: Back icon voor Uitloggen scherm */
         #scr-uitloggen .back-icon {
             top: 56.5%; left: 33%;
             transform: translate(-50%, -50%);
-            width: 160px; /* Breder gemaakt zodat het op een knop lijkt */
+            width: 160px;
             height: 55px;
             border-radius: 10px;
         }
-
 
         /* =========================================
            CUSTOM HOTSPOTS
@@ -165,7 +176,6 @@
             width: 45px; height: 45px; border-radius: 50%; 
         }
         
-        /* NIEUWE HOTSPOT OP DEPOTS SCHERM */
         #hotspot-depot-1e {
             top: 72px;
             left: 2%;
@@ -182,14 +192,11 @@
             z-index: 110; border-radius: 10px;
         }
 
-        /* Profiel items posities */
         #profiel-overdezeapp { top: 80px; } 
         #profiel-voorkeuren { top: 138px; } 
         #profiel-details { top: 196px; }
-        /* NIEUW: Uitloggen knop op profiel pagina (onderaan de lijst) */
         #profiel-uitloggen { top: 280px; }
 
-        /* Service items posities (origineel) */
         #service-berichten { top: 70px; } 
         #service-vrijvragen { top: 128px; } 
         #service-contactleiding { top: 191px; }
@@ -201,7 +208,6 @@
         #service-oranjekaart { top: 539px; }
         #service-extrabeschikbaar { top: 597px; }
 
-        /* NIEUW: 7 hotspots posities op scr-handigelinks (onder elkaar) */
         #handig-mijn-account   { top: 55px; }
         #handig-mijnhr-1       { top: 112px; }
         #handig-web-1          { top: 171px; }
@@ -210,9 +216,6 @@
         #handig-web-3          { top: 344px; }
         #handig-web-4          { top: 400px; }
 
-        /* =========================================
-           TOEGEVOEGDE HOTSPOTS VOOR SCHERM ROOSTER
-           ========================================= */
         #hotspot-urentotaal {
             top: 75px; left: 22%;
             width: 25%; height: 4%;
@@ -225,9 +228,6 @@
             position: absolute; z-index: 125; cursor: pointer;
         }
 
-        /* =========================================
-           NIEUWE HOTSPOTS OP BIEDEN
-           ========================================= */
         #hotspot-bieden-links {
             top: 267px; left: 51%;
             width: 10%; height: 40px;
@@ -238,9 +238,6 @@
             width: 10%; height: 40px;
         }
 
-        /* =========================================
-           NIEUWE HOTSPOTS OP VANDAAG
-           ========================================= */
         #hotspot-vandaag-loopalgestart {
             top: 34.5%; left: 4%;
             width: 93%; height: 5.5%;
@@ -251,7 +248,6 @@
             width: 93%; height: 5.5%;
         }
         
-        /* Hotspot midden boven op Vandaag naar TAKEN */
         #hotspot-vandaag-taken {
             top: 5px; left: 86%;
             transform: translateX(-50%);
@@ -259,9 +255,6 @@
             height: 50px;
         }
 
-        /* =========================================
-           NIEUWE HOTSPOTS OP LOOPALGESTART
-           ========================================= */
         #hotspot-loopalgestart-depotvandaag {
             top: 22.5%; left: 3.5%;
             width: 94%; height: 7%;
@@ -272,17 +265,12 @@
             width: 94%; height: 7%;
         }
 
-        /* Hotspot rechtsboven op Loopalgestart naar VANDAAGKAART */
         #hotspot-loop-kaart {
-            top: 15px; right: 15px;
+            top: 5px; right: 5px;
             width: 50px;
             height: 50px;
         }
 
-        /* =========================================
-           NIEUWE HOTSPOTS OP DEPOT VANDAAG
-           ========================================= */
-        /* Pas top/left/width/height aan op basis van waar de knoppen in de afbeelding zitten */
         #hotspot-depot-contact {
             top: 37%; left: 84.7%;
             width: 10%; 
@@ -295,6 +283,27 @@
             height: 5%;
         }
 
+        /* NIEUW - hotspots verzoek 1 + 2 (contactleiding) */
+        #hotspot-contactleiding-contact2 {
+            top: 18%; right: 19%; width: 10%; height: 5%;  /* midden ≈ pas aan */
+        }
+
+        #hotspot-contactleiding-vertrouwenspersonen {
+            top: 32%; left: 4%; width: 81%; height: 8%;   /* midden bovenin ≈ pas aan */
+        }
+
+        /* NIEUW - hotspots verzoek 3 (vrijvragen) */
+        #hotspot-vrijvragen-goedgekeurd {
+            top: 48%; left: 2%; width: 97%; height: 18.5%;   /* 1e midden */
+        }
+
+        #hotspot-vrijvragen-goedgekeurd2 {
+            top: 67.5%; left: 2%; width: 97%; height: 14.5%;   /* 2e er vlak onder */
+        }
+
+        #hotspot-vrijvragen-geannuleerd {
+            top: 83%; left: 2%; width: 97%; height: 6.5%;   /* 3e hoger, boven nav */
+        }
 
         /* Warning Box */
         .warning-box {
@@ -314,7 +323,6 @@
             font-family: Arial, sans-serif;
         }
 
-        /* Warning zichtbaar op Tradler + de 7 nieuwe schermen */
         #scr-tradler.active ~ .warning-box,
         #scr-mijn-account.active ~ .warning-box,
         #scr-mijnhr-1.active ~ .warning-box,
@@ -322,7 +330,9 @@
         #scr-mijnhr-2.active ~ .warning-box,
         #scr-web-2.active ~ .warning-box,
         #scr-web-3.active ~ .warning-box,
-        #scr-web-4.active ~ .warning-box {
+        #scr-web-4.active ~ .warning-box,
+        /* NIEUW verzoek 2 */
+        #scr-vertrouwenspersonen.active ~ .warning-box {
             display: block;
         }
 
@@ -521,6 +531,12 @@
     <div id="scr-contactleiding" class="screen">
         <img src="img/Contact leidinggevenden.jpeg" alt="Contact leidinggevenden">
         <div class="back-icon" onclick="goBack()"></div>
+
+        <!-- NIEUW verzoek 1 -->
+        <div class="custom-hotspot" id="hotspot-contactleiding-contact2" onclick="goTo('scr-contact2')"></div>
+        <!-- NIEUW verzoek 2 -->
+        <div class="custom-hotspot" id="hotspot-contactleiding-vertrouwenspersonen" onclick="goTo('scr-vertrouwenspersonen')"></div>
+
         <div class="nav-bar">
             <div class="hotspot" onclick="goTo('scr-vandaag')"></div>
             <div class="hotspot" onclick="goTo('scr-depots')"></div>
@@ -528,6 +544,20 @@
             <div class="hotspot" onclick="goTo('scr-bieden')"></div>
             <div class="hotspot" onclick="goTo('scr-service')"></div>
         </div>
+    </div>
+
+    <!-- NIEUW verzoek 1 – Contact2 (geen nav-bar) -->
+    <div id="scr-contact2" class="screen">
+        <img src="img/Contact2.jpeg" alt="Contact 2">
+        <div class="back-icon" onclick="goTo('scr-contactleiding')"></div>
+        <!-- GEEN nav-bar -->
+    </div>
+
+    <!-- NIEUW verzoek 2 – Vertrouwenspersonen (warning-box, geen nav-bar) -->
+    <div id="scr-vertrouwenspersonen" class="screen">
+        <img src="img/Vertrouwenspersonen.jpeg" alt="Vertrouwenspersonen">
+        <div class="back-icon" onclick="goTo('scr-contactleiding')"></div>
+        <!-- GEEN nav-bar -->
     </div>
 
     <div id="scr-scoit" class="screen">
@@ -615,6 +645,48 @@
         
         <div class="custom-hotspot" id="hotspot-vrijvragen-tekst" onclick="goTo('scr-begindatum')"></div>
 
+        <!-- NIEUW verzoek 3 – drie hotspots -->
+        <div class="custom-hotspot" id="hotspot-vrijvragen-goedgekeurd" onclick="goTo('scr-verlof-goedgekeurd')"></div>
+        <div class="custom-hotspot" id="hotspot-vrijvragen-goedgekeurd2" onclick="goTo('scr-verlof-goedgekeurd2')"></div>
+        <div class="custom-hotspot" id="hotspot-vrijvragen-geannuleerd" onclick="goTo('scr-verlof-geannuleerd')"></div>
+
+        <div class="nav-bar">
+            <div class="hotspot" onclick="goTo('scr-vandaag')"></div>
+            <div class="hotspot" onclick="goTo('scr-depots')"></div>
+            <div class="hotspot" onclick="goTo('scr-rooster')"></div>
+            <div class="hotspot" onclick="goTo('scr-bieden')"></div>
+            <div class="hotspot" onclick="goTo('scr-service')"></div>
+        </div>
+    </div>
+
+    <!-- NIEUW verzoek 3 – Verlof status schermen -->
+    <div id="scr-verlof-goedgekeurd" class="screen">
+        <img src="img/Verlof goedgekeurd.jpeg" alt="Verlof goedgekeurd">
+        <div class="back-icon" onclick="goTo('scr-vrijvragen')"></div>
+        <div class="nav-bar">
+            <div class="hotspot" onclick="goTo('scr-vandaag')"></div>
+            <div class="hotspot" onclick="goTo('scr-depots')"></div>
+            <div class="hotspot" onclick="goTo('scr-rooster')"></div>
+            <div class="hotspot" onclick="goTo('scr-bieden')"></div>
+            <div class="hotspot" onclick="goTo('scr-service')"></div>
+        </div>
+    </div>
+
+    <div id="scr-verlof-goedgekeurd2" class="screen">
+        <img src="img/Verlof goedgekeurd2.jpeg" alt="Verlof goedgekeurd 2">
+        <div class="back-icon" onclick="goTo('scr-vrijvragen')"></div>
+        <div class="nav-bar">
+            <div class="hotspot" onclick="goTo('scr-vandaag')"></div>
+            <div class="hotspot" onclick="goTo('scr-depots')"></div>
+            <div class="hotspot" onclick="goTo('scr-rooster')"></div>
+            <div class="hotspot" onclick="goTo('scr-bieden')"></div>
+            <div class="hotspot" onclick="goTo('scr-service')"></div>
+        </div>
+    </div>
+
+    <div id="scr-verlof-geannuleerd" class="screen">
+        <img src="img/Verlof geannuleerd.jpeg" alt="Verlof geannuleerd">
+        <div class="back-icon" onclick="goTo('scr-vrijvragen')"></div>
         <div class="nav-bar">
             <div class="hotspot" onclick="goTo('scr-vandaag')"></div>
             <div class="hotspot" onclick="goTo('scr-depots')"></div>
@@ -718,6 +790,7 @@
     <div id="scr-loopstarten" class="screen">
         <img src="img/Loopstarten.jpeg" alt="Loop starten">
         <div class="back-icon" onclick="goTo('scr-vandaag')"></div>
+        <div class="custom-hotspot" id="hotspot-loopalgestart-depotvandaag" onclick="goTo('scr-depotvandaag')"></div>
 
         <div class="nav-bar">
             <div class="hotspot" onclick="goTo('scr-vandaag')"></div>
@@ -824,23 +897,33 @@
         if (!current) return;
         const id = current.id;
         
-        if (id === 'scr-begindatum') goTo('scr-vrijvragen');
-        else if (['scr-overdezeapp', 'scr-voorkeuren', 'scr-profieldetails'].includes(id)) goTo('scr-profiel');
-        else if (id === 'scr-profiel') goTo('scr-vandaag');
-        else if (id === 'scr-vrijvragen') goTo('scr-service');
-        else if (id === 'scr-loopalgestart' || id === 'scr-loopstarten') goTo('scr-vandaag');
-        else if (id === 'scr-depotvandaag' || id === 'scr-retailadres') goTo('scr-loopalgestart');
-        else if (['scr-mijn-account', 'scr-mijnhr-1', 'scr-web-1', 'scr-mijnhr-2', 'scr-web-2', 'scr-web-3', 'scr-web-4'].includes(id)) goTo('scr-handigelinks');
-        // NIEUW: Logica voor terugknoppen van nieuwe schermen
-        else if (id === 'scr-contact') goTo('scr-depotvandaag');
-        else if (id === 'scr-vandaagkaart') goTo('scr-depotvandaag');
-        else if (id === 'scr-uitloggen') goTo('scr-profiel');
-        else if (id === 'scr-taken') goTo('scr-vandaag');
-        // NIEUW: Terug van Depot 1e naar Depots overzicht
-        else if (id === 'scr-depot-1e') goTo('scr-depots');
+        if (id === 'scr-begindatum')                       goTo('scr-vrijvragen');
+        else if (['scr-overdezeapp', 'scr-voorkeuren', 'scr-profieldetails'].includes(id)) 
+                                                           goTo('scr-profiel');
+        else if (id === 'scr-profiel')                     goTo('scr-vandaag');
+        else if (id === 'scr-vrijvragen')                  goTo('scr-service');
+        else if (id === 'scr-loopalgestart' || id === 'scr-loopstarten') 
+                                                           goTo('scr-vandaag');
+        else if (id === 'scr-depotvandaag' || id === 'scr-retailadres') 
+                                                           goTo('scr-loopalgestart');
+        else if (['scr-mijn-account', 'scr-mijnhr-1', 'scr-web-1', 
+                  'scr-mijnhr-2', 'scr-web-2', 'scr-web-3', 'scr-web-4'].includes(id)) 
+                                                           goTo('scr-handigelinks');
+        else if (id === 'scr-contact')                     goTo('scr-depotvandaag');
+        else if (id === 'scr-vandaagkaart')                goTo('scr-depotvandaag');
+        else if (id === 'scr-uitloggen')                   goTo('scr-profiel');
+        else if (id === 'scr-taken')                       goTo('scr-vandaag');
+        else if (id === 'scr-depot-1e')                    goTo('scr-depots');
 
-        else goTo('scr-service');
-        // fallback voor andere service-schermen
+        // NIEUW verzoek 1 + 2
+        else if (id === 'scr-contact2')                    goTo('scr-contactleiding');
+        else if (id === 'scr-vertrouwenspersonen')         goTo('scr-contactleiding');
+
+        // NIEUW verzoek 3
+        else if (['scr-verlof-goedgekeurd', 'scr-verlof-goedgekeurd2', 'scr-verlof-geannuleerd'].includes(id)) 
+                                                           goTo('scr-vrijvragen');
+
+        else                                               goTo('scr-service'); // fallback
     }
 </script>
 </body>
