@@ -97,27 +97,33 @@
         #scr-werkinformatie .back-icon, #scr-handigelinks .back-icon, #scr-tradler .back-icon,
 	#scr-mijn-account .back-icon,
 	#scr-mijnhr-1 .back-icon,
-	#scr-mijnhr-2 .back-icon,
 	#scr-web-1 .back-icon,
+	#scr-mijnhr-2 .back-icon,
 	#scr-web-2 .back-icon,
 	#scr-web-3 .back-icon,
 	#scr-web-4 .back-icon,
-	#scr-mijn-account .back-icon,
 
         #scr-oranjekaart .back-icon, #scr-extrabeschikbaar .back-icon, #scr-begindatum .back-icon,
         #scr-uren-totaal .back-icon, #scr-13weken .back-icon,
         #scr-kaart .back-icon, #scr-loopwijzer .back-icon,
         #scr-loopalgestart .back-icon, #scr-loopstarten .back-icon,
-        #scr-depotvandaag .back-icon, #scr-retailadres .back-icon,
-        #scr-contact .back-icon, #scr-vandaagkaart .back-icon, #scr-contactleiding .back-icon, 
+        #scr-depotvandaag .back-icon, #scr-retailadres .back-icon, #scr-contact .back-icon, #scr-vandaagkaart .back-icon, #scr-contactleiding .back-icon, 
         #scr-uitloggen .back-icon, #scr-taken .back-icon, #scr-depot-1e .back-icon,
         /* NIEUW toegevoegd voor de drie nieuwe verlof-schermen */
         #scr-verlof-goedgekeurd .back-icon,
         #scr-verlof-goedgekeurd2 .back-icon,
         #scr-verlof-geannuleerd .back-icon,
+
+
         /* NIEUW voor verzoek 1 & 2 */
         #scr-contact2 .back-icon,
-        #scr-vertrouwenspersonen .back-icon {
+        #scr-vertrouwenspersonen .back-icon,
+        /* NIEUW voor inlogschermen verzoek 3 & 4 */
+        #scr-inloggen .back-icon,
+        #scr-kiesserver .back-icon,
+        #scr-wachtwoordvergeten .back-icon,
+        #scr-navigatie .back-icon
+        {
             display: block;
         }
 
@@ -133,6 +139,13 @@
         #scr-taken .back-icon { top: 5px; }
         #scr-depot-1e .back-icon { top: 5px; left: 5px; }
         #scr-contact2 .back-icon { top: 0%; left: 0px; width:100%; height:80.5%; }
+	#scr-inloggen .back-icon,
+	#scr-wachtwoordvergeten .back-icon back-top-right
+	#scr-wachtwoordvergeten .back-icon back-center
+	#scr-kiesserver .back-icon
+     	
+	
+
         
         #scr-tradler .back-icon,
 	#scr-mijn-account .back-icon,
@@ -151,9 +164,53 @@
         #scr-uitloggen .back-icon {
             top: 56.5%; left: 33%;
             transform: translate(-50%, -50%);
-            width: 160px;
+            width: 100px;
             height: 55px;
             border-radius: 10px;
+        }
+
+/* Rechtsboven */
+.back-top-right {
+    top: 7.5%;
+    left: 84.5%;
+    width: 10%;
+    height: 5%;
+}
+
+/* Midden */
+.back-center {
+    top: 89.5%;
+    left: 23%;
+    transform: translate(-50%, -50%);
+    width: 33.5%;
+    height: 5.5%;
+}
+        /* NIEUW - Back icon positie voor inloggen (midden scherm zoals gevraagd) */
+        #scr-inloggen .back-icon {
+            top: 81.7%;
+            left: 23%;
+            transform: translate(-50%, -50%);
+            width: 150px;
+            height: 49px;
+            z-index: 150;
+        }
+
+
+
+        /* NIEUW - Back icon positie voor kiesserver (linksboven) */
+        #scr-kiesserver .back-icon {
+            top: 3.5%;
+            left: 3%;
+            width: 80px;
+            height: 40px;
+        }
+
+        /* NIEUW - Back icon voor navigatie (standaard linksboven) */
+        #scr-navigatie .back-icon {
+            top: 3px;
+            left: 0px;
+            width: 48px;
+            height: 48px;
         }
 
         /* =========================================
@@ -283,7 +340,7 @@
             height: 5%;
         }
 
-        /* NIEUW - hotspots verzoek 1 + 2 (contactleiding) */
+        /* NIEUW - hotspots verzoek 1 & 2 (contactleiding) */
         #hotspot-contactleiding-contact2 {
             top: 18%; right: 19%; width: 10%; height: 5%;  /* midden ≈ pas aan */
         }
@@ -303,6 +360,42 @@
 
         #hotspot-vrijvragen-geannuleerd {
             top: 83%; left: 2%; width: 97%; height: 6.5%;   /* 3e hoger, boven nav */
+        }
+
+        /* NIEUW verzoek 1 - hotspot rechtsboven scr-retailadres → navigatie */
+        #hotspot-retail-navigatie {
+            top: 50
+            right: 3%;
+            width: px;
+            height: 60px;
+            z-index: 130;
+        }
+
+        /* NIEUW verzoek 2 - hotspot midden uitloggen → inloggen */
+        #hotspot-uitloggen-naar-inlog {
+            top: 53.5%;
+            right: 15%;
+            width: 160px;
+            height: 55px;
+            z-index: 130;
+        }
+
+        /* NIEUW verzoek 3 - hotspot midden inloggen → wachtwoord vergeten */
+        #hotspot-inlog-wachtwoordvergeten {
+            top: 78.5%;
+            right: 8%;
+            width: 45%;
+            height: 5.6%;
+            z-index: 130;
+        }
+
+        /* NIEUW verzoek 3 - hotspot rechtsboven inloggen → kiesserver */
+        #hotspot-inlog-kiesserver {
+            top: 0.1%;
+            right: 0.1%;
+            width: 60px;
+            height: 60px;
+            z-index: 130;
         }
 
         /* Warning Box */
@@ -471,6 +564,8 @@
     <div id="scr-uitloggen" class="screen">
         <img src="img/uitloggen.jpeg" alt="Uitloggen">
         <div class="back-icon" onclick="goBack()"></div>
+        <!-- NIEUW Verzoek 2: hotspot midden scherm naar inloggen -->
+        <div class="custom-hotspot" id="hotspot-uitloggen-naar-inlog" onclick="goTo('scr-inloggen')"></div>
         <div class="nav-bar">
             <div class="hotspot" onclick="goTo('scr-vandaag')"></div>
             <div class="hotspot" onclick="goTo('scr-depots')"></div>
@@ -478,6 +573,33 @@
             <div class="hotspot" onclick="goTo('scr-bieden')"></div>
             <div class="hotspot" onclick="goTo('scr-service')"></div>
         </div>
+    </div>
+
+    <!-- NIEUW Verzoek 3 & 4: inloggen scherm -->
+    <div id="scr-inloggen" class="screen">
+        <img src="img/inloggen.jpeg" alt="Inloggen">
+        <!-- Back icon groot in midden scherm naar vandaag -->
+        <div class="back-icon" onclick="goTo('scr-vandaag')"></div>
+        <!-- Hotspot midden → wachtwoord vergeten -->
+        <div class="custom-hotspot" id="hotspot-inlog-wachtwoordvergeten" onclick="goTo('scr-wachtwoordvergeten')"></div>
+        <!-- Hotspot rechtsboven → kiesserver -->
+        <div class="custom-hotspot" id="hotspot-inlog-kiesserver" onclick="goTo('scr-kiesserver')"></div>
+        <!-- GEEN nav-bar zoals gevraagd -->
+    </div>
+
+    <!-- NIEUW Verzoek 3: wachtwoord vergeten scherm -->
+    <div id="scr-wachtwoordvergeten" class="screen">
+        <img src="img/wachtwoordvergeten.jpeg" alt="Wachtwoord vergeten">
+        <div class="back-icon back-top-right" onclick="goTo('scr-inloggen')"></div>
+     	<div class="back-icon back-center" onclick="goTo('scr-inloggen')"></div>
+        <!-- GEEN nav-bar -->
+    </div>
+
+    <!-- NIEUW Verzoek 4: kies server scherm -->
+    <div id="scr-kiesserver" class="screen">
+        <img src="img/kiesserver.jpeg" alt="Kies server">
+        <div class="back-icon" onclick="goTo('scr-inloggen')"></div>
+        <!-- GEEN nav-bar -->
     </div>
 
     <div id="scr-overdezeapp" class="screen">
@@ -801,6 +923,7 @@
         </div>
     </div>
 
+
     <div id="scr-depotvandaag" class="screen">
         <img src="img/Depotvandaag.jpeg" alt="Depot vandaag">
         <div class="back-icon" onclick="goTo('scr-loopalgestart')"></div>
@@ -830,6 +953,8 @@
     <div id="scr-retailadres" class="screen">
         <img src="img/Retailadres.jpeg" alt="Retail adres">
         <div class="back-icon" onclick="goTo('scr-loopalgestart')"></div>
+        <!-- NIEUW Verzoek 1: hotspot rechtsboven → navigatie -->
+        <div class="custom-hotspot" id="hotspot-retail-navigatie" onclick="goTo('scr-navigatie')"></div>
 
         <div class="nav-bar">
             <div class="hotspot" onclick="goTo('scr-vandaag')"></div>
@@ -838,6 +963,13 @@
             <div class="hotspot" onclick="goTo('scr-bieden')"></div>
             <div class="hotspot" onclick="goTo('scr-service')"></div>
         </div>
+    </div>
+
+    <!-- NIEUW Verzoek 1: navigatie scherm (geen nav-bar) -->
+    <div id="scr-navigatie" class="screen">
+        <img src="img/navigatie.jpeg" alt="Navigatie">
+        <div class="back-icon" onclick="goTo('scr-retailadres')"></div>
+        <!-- GEEN nav-bar -->
     </div>
 
     <div id="scr-mijn-account" class="screen">
@@ -915,13 +1047,19 @@
         else if (id === 'scr-taken')                       goTo('scr-vandaag');
         else if (id === 'scr-depot-1e')                    goTo('scr-depots');
 
-        // NIEUW verzoek 1 + 2
+        // NIEUW verzoek 1 & 2
         else if (id === 'scr-contact2')                    goTo('scr-contactleiding');
         else if (id === 'scr-vertrouwenspersonen')         goTo('scr-contactleiding');
 
         // NIEUW verzoek 3
         else if (['scr-verlof-goedgekeurd', 'scr-verlof-goedgekeurd2', 'scr-verlof-geannuleerd'].includes(id)) 
                                                            goTo('scr-vrijvragen');
+
+        // NIEUW inlog-gerelateerd
+        else if (id === 'scr-inloggen')                    goTo('scr-vandaag');
+        else if (id === 'scr-wachtwoordvergeten')          goTo('scr-inloggen');
+        else if (id === 'scr-kiesserver')                  goTo('scr-inloggen');
+        else if (id === 'scr-navigatie')                   goTo('scr-retailadres');
 
         else                                               goTo('scr-service'); // fallback
     }
