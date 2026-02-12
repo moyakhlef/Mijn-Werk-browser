@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Interactief Mobiel Prototype - PostNL MijnWerk</title>
     <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #e6e6e6; /* Iets donkere achtergrond zodat app eruit springt */
+            margin: 0;
+            padding: 0;
+        }
+
         .app-container {
             position: relative;
             width: 100%;
@@ -15,6 +22,8 @@
             overflow: hidden;
             box-shadow: 0 10px 25px rgba(0,0,0,0.15);
             background-color: #f5f5f5;
+            /* Zorg dat de container een stacking context heeft */
+            z-index: 10; 
         }
 
         .screen {
@@ -36,7 +45,7 @@
             position: absolute;
             bottom: 0;
             width: 100%;
-            height: 12%;
+            height: 10.8%;
             display: flex;
             z-index: 100;
         }
@@ -91,10 +100,18 @@
         }
 
         /* Zorg dat back-icon zichtbaar is op de juiste pagina's */
-        #scr-profiel .back-icon, #scr-overdezeapp .back-icon, #scr-voorkeuren .back-icon, 
-        #scr-profieldetails .back-icon, #scr-berichten .back-icon, #scr-vrijvragen .back-icon, 
-        #scr-contactleiding .back-icon, #scr-scoit .back-icon, #scr-meldingmaken .back-icon, 
-        #scr-werkinformatie .back-icon, #scr-handigelinks .back-icon, #scr-tradler .back-icon,
+        #scr-profiel .back-icon, 
+        #scr-overdezeapp .back-icon, 
+        #scr-voorkeuren .back-icon, 
+        #scr-profieldetails .back-icon, 
+        #scr-berichten .back-icon, 
+        #scr-vrijvragen .back-icon, 
+        #scr-contactleiding .back-icon, 
+        #scr-scoit .back-icon, 
+        #scr-meldingmaken .back-icon, 
+        #scr-werkinformatie .back-icon, 
+        #scr-handigelinks .back-icon, 
+        #scr-tradler .back-icon,
         #scr-mijn-account .back-icon,
         #scr-mijnhr-1 .back-icon,
         #scr-web-1 .back-icon,
@@ -102,18 +119,58 @@
         #scr-web-2 .back-icon,
         #scr-web-3 .back-icon,
         #scr-web-4 .back-icon,
-
-        #scr-oranjekaart .back-icon, #scr-extrabeschikbaar .back-icon, #scr-begindatum .back-icon,
-        #scr-uren-totaal .back-icon, #scr-13weken .back-icon,
-        #scr-kaart .back-icon, #scr-loopwijzer .back-icon,
-        #scr-loopalgestart .back-icon, #scr-loopstarten .back-icon,
-        #scr-depotvandaag .back-icon, #scr-retailadres .back-icon, #scr-contact .back-icon, #scr-vandaagkaart .back-icon, #scr-contactleiding .back-icon, 
-        #scr-uitloggen .back-icon, #scr-taken .back-icon, 
-	#scr-depot-1e .back-icon,
+        #scr-plustijdopgeven .back-icon,
+        #scr-keuze-invullen .back-icon,
+        #scr-oranjekaart .back-icon, 
+        #scr-extrabeschikbaar .back-icon, 
+        #scr-begindatum .back-icon,
+        #scr-uren-totaal .back-icon, 
+        #scr-13weken .back-icon,
+        #scr-kaart .back-icon, 
+        #scr-loopwijzer .back-icon,
+        #scr-loopalgestart .back-icon, 
+        #scr-loopstarten .back-icon,
+        #scr-depotvandaag .back-icon, 
+        #scr-retailadres .back-icon, 
+        #scr-contact .back-icon, 
+        #scr-vandaagkaart .back-icon, 
+        #scr-contactleiding .back-icon, 
+        #scr-uitloggen .back-icon, 
+        #scr-taken .back-icon, 
+	    #scr-depot-1e .back-icon,
+        #scr-keuze-invullen .back-icon,
+        #scr-redenkiezen .back-icon,
+        #scr-succesvol .back-icon,
+        #scr-samenvatting .back-icon,
+        #scr-basistijdgekozen .back-icon,
+        #scr-kaart538j08 .back-icon,
+        #scr-loopwijzer538j03 .back-icon,
+        #scr-korenstraat1 .back-icon,
+        #scr-korenstraat2 .back-icon,
+        #scr-het-erp .back-icon,
+        #scr-urnenveld .back-icon,
+        #scr-urnenveld2 .back-icon,
+        #scr-urnenveld2bewerk .back-icon,
+        #scr-oude-torenweg .back-icon,
+        #scr-korenstraat1-2 .back-icon,
+        #scr-korenstraat2-2 .back-icon,
+        #scr-het-erp2 .back-icon,
+        #scr-urnenveld1 .back-icon,
+        #scr-urnenveldbewerk .back-icon,
+        #scr-urnenveld2 .back-icon,
+        #scr-urnenveld2-2 .back-icon,
+        #scr-oude-torenweg2 .back-icon,
+        #scr-bericht-1-bijlage .back-icon,
+        #scr-bericht-2-bijlage .back-icon,
+        
         
         /* Nieuwe depot schermen back-icons */
-        #scr-5384C .back-icon, #scr-5386K .back-icon, #scr-5388H .back-icon, 
-        #scr-5391B .back-icon, #scr-5397E .back-icon, #scr-5398H .back-icon,
+        #scr-5384C .back-icon, 
+        #scr-5386K .back-icon, 
+        #scr-5388H .back-icon, 
+        #scr-5391B .back-icon, 
+        #scr-5397E .back-icon, 
+        #scr-5398H .back-icon,
         
         #scr-verlof-goedgekeurd .back-icon,
         #scr-verlof-goedgekeurd2 .back-icon,
@@ -125,6 +182,7 @@
         #scr-kiesserver .back-icon,
         #scr-wachtwoordvergeten .back-icon,
         #scr-navigatie .back-icon,
+        #scr-plustijd1.jpeg .back-icon,
         
         /* Contact detail schermen (met grote back button) */
         #scr-5382J-contact .back-icon, #scr-5384C-contact .back-icon, 
@@ -140,7 +198,7 @@
         #scr-werkinformatie-5 .back-icon,
 
         /* NIEUWE SCHERMEN (VERZOEK 1 & 2) */
-	#scr-mijnhr-biedingen .back-icon,
+	    #scr-mijnhr-biedingen .back-icon,
         #scr-bericht-1 .back-icon,
         #scr-bericht-2 .back-icon,
         #scr-bericht-3 .back-icon,
@@ -152,7 +210,7 @@
             display: block;
         }
 
-        /* Uitzonderingen posities back-icon */
+        /* Uitzonderingen posities back-icon **********************************************/
         #scr-oranjekaart .back-icon { top: 80px; }
         #scr-extrabeschikbaar .back-icon { top: 10px; }
         #scr-begindatum .back-icon { top: 25px; }
@@ -163,15 +221,46 @@
         #scr-contact .back-icon { top: 0%; left: 0px; width:100%; height:80.5%; }
         #scr-taken .back-icon { top: 5px; }
         #scr-depot-1e .back-icon { top: 5px; left: 5px; }
-	#scr-mijnhr-biedingen .back-icon { top: 7%; left: 5%; width:45%; height:4.5%; }
-	
+	    #scr-mijnhr-biedingen .back-icon { top: 7%; left: 5%; width:45%; height:4.5%; }
+        #scr-plustijdopgeven .back-icon { top: 3%; left: 1%; width:10%; height:4.5%; }
+	    #scr-keuze-invullen .back-icon { top: 3%; left: 1%; width:10%; height:4.5%; }
+        #scr-keuze-invullen .back-icon { top: 3%; right: 1%; width:10%; height:4.5%; }
+        #scr-redenkiezen .back-icon { top: 3%; left: 1%; width:10%; height:4.5%; }
+        #scr-keuze-invullen .back-icon { top: 3.8%; right: 1%; width:10%; height:4.5%; }
+        #scr-succesvol .back-icon { top: 3%; left: 1%; width:10%; height:4.5%; }
+        #scr-samenvatting .back-icon { top: 3%; left: 1%; width:10%; height:4.5%; }
+        #scr-basistijdgekozen .back-icon { top: 3%; left: 1%; width:10%; height:4.5%; }
+        #scr-kaart538j08 .back-icon { top: 4%; left: 1%; width:10%; height:4.5%; }
+        #scr-loopwijzer538j03 .back-icon { top: 4%; left: 1%; width:10%; height:4.5%; }
+        #scr-het-erp .back-icon { top: 4%; left: 1%; width:10%; height:4.5%; }
+        #scr-urnenveld .back-icon { top: 4%; left: 1%; width:10%; height:4.5%; }
+        #scr-urnenveld2 .back-icon { top: 4%; left: 1%; width:10%; height:4.5%; }
+        #scr-oude-torenweg .back-icon { top: 4%; left: 1%; width:10%; height:4.5%; }
+        #scr-korenstraat1 .back-icon { top: 4%; left: 1%; width:10%; height:4.5%; }
+        #scr-korenstraat2 back-icon { top: 4%; left: 1%; width:10%; height:4.5%; }
+        #scr-korenstraat1-2 .back-icon { top: 4%; left: 1%; width:10%; height:4.5%; }
+        #scr-korenstraat2-2 .back-icon { top: 4%; left: 1%; width:10%; height:4.5%; }
+        #scr-het-erp2 .back-icon { top: 4%; left: 1%; width:10%; height:4.5%; }
+        #scr-urnenveld1 .back-icon { top: 4%; left: 1%; width:10%; height:4.5%; }
+        #scr-urnenveldbewerk .back-icon { top: 4%; left: 1%; width:10%; height:4.5%; }
+        #scr-urnenveld2 .back-icon { top: 4%; left: 1%; width:10%; height:4.5%; }
+        #scr-urnenveld2bewerk .back-icon { top: 4%; left: 1%; width:10%; height:4.5%; }
+        #scr-oude-torenweg2 .back-icon { top: 4%; left: 1%; width:10%; height:4.5%; }
+        #scr-bericht-1 .back-icon { top: 2%; left: 1%; width:10%; height:4.5%; }
+        #scr-bericht-2 .back-icon { top: 2%; left: 1%; width:10%; height:4.5%; }
+        #scr-bericht-1-bijlage .back-icon { top: 2%; left: 0.8%; width:10%; height:4.5%; }
+        #scr-bericht-2-bijlage .back-icon { top: 2%; left: 0.8%; width:10%; height:4.5%; }
+        #scr-korenstraat2 .back-icon { top: 4%; left: 0.8%; width:10%; height:4.5%; }
+        #scr-bericht-3 .back-icon { top: 1%; left: 0.5%; width:10%; height:4.5%; }
 	
         
         /* OOK voor de nieuwe depot pagina's de back icon linksboven fixen indien nodig */
-        #scr-5384C .back-icon, #scr-5386K .back-icon, #scr-5388H .back-icon, 
-        #scr-5391B .back-icon, #scr-5397E .back-icon, #scr-5398H .back-icon {
-            top: 5px; left: 5px;
-        }
+        #scr-5384C .back-icon, 
+        #scr-5386K .back-icon, 
+        #scr-5388H .back-icon, 
+        #scr-5391B .back-icon, 
+        #scr-5397E .back-icon, 
+        #scr-5398H .back-icon {top: 5px; left: 5px;}
 
         #scr-contact2 .back-icon { top: 0%; left: 0px; width:100%; height:80.5%; }
 
@@ -247,7 +336,7 @@
             width: 80px;
             height: 40px;
         }
-
+        
         #scr-navigatie .back-icon {
             top: 0px;
             left: 0px;
@@ -270,9 +359,162 @@
             width: calc(95% + 10px); height: 50px;
         }
 
+    
+        #hotspot-keuze-invullen { 
+            top: 27%;
+            left: 4%;
+            width: 90%;
+            height: 6%;
+            z-index: 130;
+        }
+            #hotspot-dienstijd-behouden { 
+            top: 33.4%;
+            left: 4%;
+            width: 90%;
+            height: 6%;
+            z-index: 130;
+        }
+        
+            #hotspot-terugplus { 
+            top: 3.5%;
+            right: 1%;
+            width: 10%;
+            height: 5%;
+            z-index: 130;
+        }
+        
+            #hotspot-terugplus1 { 
+            top: 3.5%;
+            right: 1%;
+            width: 10%;
+            height: 5%;
+            z-index: 130;
+        }
+            #hotspot-terugplus2 { 
+            top: 3.3%;
+            right: 1%;
+            width: 10%;
+            height: 5%;
+            z-index: 130;
+        }
+            #hotspot-terugplus3 { 
+            top: 3.3%;
+            right: 1%;
+            width: 10%;
+            height: 5%;
+            z-index: 130;
+        }
+            #hotspot-terugplus4 { 
+            top: 3.3%;
+            right: 1%;
+            width: 10%;
+            height: 5%;
+            z-index: 130;
+        }
+        
+            #hotspot-verderplus1 { 
+            top: 91.5%;
+            right: 6.2%;
+            width: 87.9%;
+            height: 5.7%;
+            z-index: 130;
+        }
+        
+        
+            #hotspot-tijd-indienen { 
+            top: 91.3%;
+            right: 6.2%;
+            width: 87.9%;
+            height: 5.7%;
+            z-index: 130;
+        }
+            
+
+            #hotspot-doorgaan { 
+            top: 39%;
+            right: 3.7%;
+            width: 92.8%;
+            height: 5.5%;
+            z-index: 130;
+        }
+            #hotspot-basistijd { 
+            top: 21.8%;
+            right: 6%;
+            width: 91%;
+            height: 6%;
+            z-index: 130;
+        }
+        
+            #hotspot-nepknop { 
+            top: 57.4%;
+            right: 56.2%;
+            width: 12%;
+            height: 2.7%;
+            z-index: 130;
+        }
+            #hotspot-nepknop2 { 
+            top: 57.4%;
+            right: 38%;
+            width: 15.5%;
+            height: 2.7%;
+            z-index: 130;
+        }
+        
         #hotspot-kalender-sluiten { 
             top: 155px; left: 23px; 
             width: 45px; height: 45px; border-radius: 50%; 
+        }
+        
+        #hotspot-loopwijzer1 { 
+            top: 26.9%;
+            right: 4%;
+            width: 95%;
+            height: 6.7%;
+        }
+            #hotspot-loopwijzer2 { 
+            top: 33.7%;
+            right: 4%;
+            width: 95%;
+            height: 6.7%;
+        }
+            #hotspot-loopwijzer3 { 
+            top: 40.7%;
+            right: 4%;
+            width: 95%;
+            height: 6.7%;
+        }
+            #hotspot-loopwijzer4 { 
+            top: 47.8%;
+            right: 4%;
+            width: 95%;
+            height: 6.7%;
+        }
+            #hotspot-loopwijzer5 { 
+            top: 54.8%;
+            right: 4%;
+            width: 95%;
+            height: 6.7%;
+        }
+
+        
+            #hotspot-loopwijzer6 { 
+            top: 61.8%;
+            right: 4%;
+            width: 95%;
+            height: 6.7%;
+        }
+        #hotspot-bericht-2-bericht { 
+            top: 8%;
+            left: 4.1%;
+            width: 45%;
+            height: 3.8%;
+        }
+
+        #hotspot-bericht-1-bericht { 
+            top: 8%;
+            left: 4.1%;
+            width: 45%;
+            height: 3.8%;
         }
         
         /* DEPOT HOTSPOTS (Lijst in scr-depots) */
@@ -344,10 +586,15 @@
             width: 25%; height: 4%;
             position: absolute; z-index: 125; cursor: pointer;
         }
-
         #hotspot-13weken {
             top: 75px; left: 55%;
             width: 22.8%; height: 4%;
+            position: absolute; z-index: 125; cursor: pointer;
+        }
+        
+        #hotspot-plustijdopgeven {
+            top: 67.5%; left: 7.2%;
+            width: 85%; height: 5.6%;
             position: absolute; z-index: 125; cursor: pointer;
         }
 
@@ -355,7 +602,18 @@
             top: 267px; left: 51%;
             width: 10%; height: 40px;
         }
-
+        
+        
+        #hotspot-bericht-1-bijlage {
+            top: 8.1%; left: 50%;
+            width: 45%; height: 33px;
+        }
+        
+        #hotspot-bericht-2-bijlage {
+            top: 8.1%; left: 50%;
+            width: 45%; height: 33px;
+        }
+        
         #hotspot-bieden-rechts {
             top: 267px; left: 61%;
             width: 10%; height: 40px;
@@ -422,6 +680,22 @@
             width: 10%; 
             height: 5%;
         }
+        #hotspot-kaart538J03 {
+            top: 57.3%; left: 69%;
+            width: 10%; 
+            height: 5%;
+        }
+
+        #hotspot-loopwijzer538J03 {
+            top: 10%; left: 4%;
+            width: 44.9%; 
+            height: 4%;
+        }
+        #hotspot-kaart538j03-2 {
+            top: 9.8%; left: 50.7%;
+            width: 45%; 
+            height: 3.6%;
+        }
 
         #hotspot-contactleiding-contact2 {
             top: 18%; right: 19%; width: 10%; height: 5%;
@@ -442,7 +716,14 @@
         #hotspot-vrijvragen-geannuleerd {
             top: 83%; left: 2%; width: 97%; height: 6.5%;
         }
-
+        
+        #hotspot-samenvatting {
+            top: 90.6%;
+            right: 6.8%;
+            width: 86.1%;
+            height: 5.8%;
+            z-index: 130;
+        }
         #hotspot-retail-navigatie {
             top: 110px;
             right: 4%;
@@ -473,6 +754,50 @@
             width: 60px;
             height: 60px;
             z-index: 130;
+        }
+            #hotspot-korenstraatbewerk {
+            top: 4%;
+            right: 1%;
+            width: 40px;
+            height: 40px;
+        }
+            #hotspot-koren2straatbewerk {
+            top: 4%;
+            right: 1%;
+            width: 40px;
+            height: 40px;
+        }
+            #hotspot-heterpbewerk {
+            top: 4%;
+            right: 1%;
+            width: 40px;
+            height: 40px;
+        }
+            #hotspot-urenveldbewerk {
+            top: 4%;
+            right: 1%;
+            width: 40px;
+            height: 40px;
+        }
+            #hotspot-urenveld2bewerk {
+            top: 4%;
+            right: 1%;
+            width: 40px;
+            height: 40px;
+        }
+            #hotspot-oudetorenbewerk {
+            top: 4%;
+            right: 1%;
+            width: 40px;
+            height: 40px;
+        }
+        
+        
+            #hotspot-Kaart536F04 {
+            top: 9.3%;
+            right: 5%;
+            width: 45%;
+            height: 3.5%;
         }
 
         /* Warning Box */
@@ -508,12 +833,103 @@
         @media (max-width: 1000px) { 
             .warning-box { left: 50%; transform: translate(-50%, -50%); width: 85%; } 
         }
+
+        /* FAQ SIDEBAR STYLING */
+.faq-sidebar {
+    display: none; 
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    margin-left: 245px;
+    width: 320px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    z-index: 1000;
+    overflow: hidden;
+    font-family: 'Arial', sans-serif;
+    border-left: 6px solid #ff7300;
+}
+/* Het plus-icoontje */
+.faq-question::after { 
+    content: '+'; 
+    color: #ff7300; 
+    font-size: 20px;
+    font-weight: bold;
+    transition: transform 0.3s ease; /* Dit zorgt voor het draai-effect */
+    display: inline-block;
+}
+
+/* Het effect bij openklappen (draaien naar een kruisje/X) */
+.faq-item.open .faq-question::after { 
+    transform: rotate(45deg); /* Draait het plusje 45 graden */
+}
+.faq-header {
+    background-color: #f9f9f9;
+    padding: 15px 20px;
+    border-bottom: 1px solid #eee;
+    color: #333;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.faq-item { border-bottom: 1px solid #eee; }
+
+.faq-question {
+    padding: 15px 20px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.faq-question:hover { background-color: #fff5eb; color: #ff7300; }
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    /* Voeg opacity en padding toe aan de transitie voor vloeiendheid */
+    transition: max-height 0.3s ease-in-out, opacity 0.3s ease, padding 0.3s ease;
+    background-color: #fafafa;
+    opacity: 0;
+    padding: 0 20px; /* Geen hoogte-padding als hij dicht is */
+}
+
+.faq-item.open .faq-answer {
+    max-height: 1000px; /* Ruim genoeg voor lange teksten */
+    opacity: 1;
+    padding: 15px 20px; /* De padding komt nu vloeiend terug */
+    border-top: 1px solid #eee;
+}
+/* Voorkom dat tekst gaat 'stotteren' door witruimte */
+.faq-answer p {
+    margin: 0;
+    padding-bottom: 10px;
+}
+
+.faq-answer p:last-child {
+    padding-bottom: 0;
+}
+        
+        
+@media (max-width: 1100px) {
+    .faq-sidebar { position: relative; left: auto; top: auto; margin: 20px auto; width: 90%; max-width: 450px; }
+}
     </style>
 </head>
 <body>
 
 <div class="app-container">
 
+    
+<div class="faq-sidebar" id="faq-sidebar">
+    <div class="faq-header">Veelgestelde vragen</div>
+    <div class="faq-content" id="faq-list">
+        </div>
+</div>
+    
     <div id="scr-vandaag" class="screen active">
         <img src="img/Vandaag.jpeg" alt="Vandaag">
         <div class="profile-icon" onclick="goTo('scr-profiel')"></div>
@@ -685,7 +1101,9 @@
 
         <div class="custom-hotspot" id="hotspot-urentotaal" onclick="goTo('scr-uren-totaal')" title="Uren totaal"></div>
         <div class="custom-hotspot" id="hotspot-13weken" onclick="goTo('scr-13weken')" title="13 weken gemiddelde"></div>
+        <div class="custom-hotspot" id="hotspot-plustijdopgeven" onclick="goTo('scr-plustijdopgeven')" title="plustijd opgeven"></div>
 
+        
         <div class="nav-bar">
              <div class="hotspot" onclick="goTo('scr-vandaag')"></div>
             <div class="hotspot" onclick="goTo('scr-depots')"></div>
@@ -858,6 +1276,20 @@
     <div id="scr-bericht-1" class="screen">
         <img src="img/bericht1.jpeg" alt="Bericht 1">
         <div class="back-icon" onclick="goTo('scr-berichten')"></div>
+        <div class="custom-hotspot" id="hotspot-bericht-1-bijlage" onclick="goTo('scr-bericht-1-bijlage')"></div>
+        <div class="nav-bar">
+            <div class="hotspot" onclick="goTo('scr-vandaag')"></div>
+            <div class="hotspot" onclick="goTo('scr-depots')"></div>
+            <div class="hotspot" onclick="goTo('scr-rooster')"></div>
+            <div class="hotspot" onclick="goTo('scr-bieden')"></div>
+            <div class="hotspot" onclick="goTo('scr-service')"></div>
+        </div>
+    </div>
+
+    <div id="scr-bericht-1-bijlage" class="screen">
+        <img src="img/bericht1bijlage.jpeg" alt="Bericht 1">
+        <div class="back-icon" onclick="goTo('scr-bericht-1')"></div>
+        <div class="custom-hotspot" id="hotspot-bericht-1-bericht" onclick="goTo('scr-bericht-1')"></div>
         <div class="nav-bar">
             <div class="hotspot" onclick="goTo('scr-vandaag')"></div>
             <div class="hotspot" onclick="goTo('scr-depots')"></div>
@@ -870,6 +1302,20 @@
     <div id="scr-bericht-2" class="screen">
         <img src="img/bericht2.jpeg" alt="Bericht 2">
         <div class="back-icon" onclick="goTo('scr-berichten')"></div>
+        <div class="custom-hotspot" id="hotspot-bericht-2-bijlage" onclick="goTo('scr-bericht-2-bijlage')"></div>
+        <div class="nav-bar">
+            <div class="hotspot" onclick="goTo('scr-vandaag')"></div>
+            <div class="hotspot" onclick="goTo('scr-depots')"></div>
+            <div class="hotspot" onclick="goTo('scr-rooster')"></div>
+            <div class="hotspot" onclick="goTo('scr-bieden')"></div>
+            <div class="hotspot" onclick="goTo('scr-service')"></div>
+        </div>
+    </div>
+
+    <div id="scr-bericht-2-bijlage" class="screen">
+        <img src="img/bericht2bijlage.jpeg" alt="Bericht 1">
+        <div class="back-icon" onclick="goTo('scr-bericht-2')"></div>
+        <div class="custom-hotspot" id="hotspot-bericht-2-bericht" onclick="goTo('scr-bericht-2')"></div>
         <div class="nav-bar">
             <div class="hotspot" onclick="goTo('scr-vandaag')"></div>
             <div class="hotspot" onclick="goTo('scr-depots')"></div>
@@ -1216,6 +1662,72 @@
             <div class="hotspot" onclick="goTo('scr-service')"></div>
         </div>
     </div>
+    
+    <div id="scr-plustijdopgeven" class="screen">
+        <img src="img/plustijd1.jpeg" alt="plustijd">
+            <div class="back-icon" onclick="goTo('scr-rooster')" title="Terug naar Rooster"></div>
+            <div class="custom-hotspot" id="hotspot-keuze-invullen" onclick="goTo('scr-keuze-invullen')"></div>
+            <div class="custom-hotspot" id="hotspot-dienstijd-behouden" onclick="goTo('scr-rooster')"></div>
+    </div>
+
+    
+    <div id="scr-keuze-invullen" class="screen">
+        <img src="img/keuze-invullen.jpeg" alt="plustijd">
+            <div class="back-icon" onclick="goTo('scr-plustijdopgeven')" title="Terug plustijd opgeven"></div>
+            <div class="custom-hotspot" id="hotspot-terugplus" onclick="goTo('scr-plustijdopgeven')"></div>
+            <div class="custom-hotspot" id="hotspot-verderplus1" onclick="goTo('scr-redenkiezen')"></div>
+           <div class="custom-hotspot selectable" id="hotspot-nepknop"></div>
+            <div class="custom-hotspot selectable" id="hotspot-nepknop2"></div>
+
+
+    </div>
+
+    <div id="scr-redenkiezen" class="screen">
+        <img src="img/redenkiezen.jpeg" alt="plustijd">
+            <div class="back-icon" onclick="goTo('scr-keuze-invullen')" title="keuze opgeven"></div>
+            <div class="custom-hotspot" id="hotspot-terugplus1" onclick="goTo('scr-keuze-invullen')"></div>
+            <div class="custom-hotspot" id="hotspot-basistijd" onclick="goTo('scr-basistijdgekozen')"></div>
+    </div>
+    
+        <div id="scr-basistijdgekozen" class="screen">
+        <img src="img/basistijdgekozen.jpeg" alt="plustijd">
+            <div class="back-icon" onclick="goTo('scr-redenkiezen')" title="reden kiezen"></div>
+            <div class="custom-hotspot" id="hotspot-terugplus2" onclick="goTo('scr-redenkiezen')"></div>
+            <div class="custom-hotspot" id="hotspot-samenvatting" onclick="goTo('scr-samenvatting')"></div>
+    </div>
+
+        <div id="scr-samenvatting" class="screen">
+        <img src="img/samenvatting.jpeg" alt="samenvatting">
+            <div class="back-icon" onclick="goTo('scr-basistijdgekozen')" title="basistijd gekozen"></div>
+            <div class="custom-hotspot" id="hotspot-terugplus3" onclick="goTo('scr-basistijdgekozen')"></div>
+            <div class="custom-hotspot" id="hotspot-tijd-indienen" onclick="goTo('scr-succesvol')"></div>
+    </div>
+    
+        <div id="scr-succesvol" class="screen">
+        <img src="img/succesvol.jpeg" alt="succesvol">
+            <div class="back-icon" onclick="goTo('scr-samenvatting')" title="basistijd gekozen"></div>
+            <div class="custom-hotspot" id="hotspot-terugplus4" onclick="goTo('scr-basistijdgekozen')"></div>
+            <div class="custom-hotspot" id="hotspot-doorgaan" onclick="goTo('scr-roosterinbehandeling')"></div>
+    </div>
+    
+    <div id="scr-roosterinbehandeling" class="screen">
+        <img src="img/roosterinbehandeling.jpeg" alt="roosterinbehandeling">
+        <div class="profile-icon" onclick="goTo('scr-profiel')"></div>
+
+        <div class="custom-hotspot" id="hotspot-urentotaal" onclick="goTo('scr-uren-totaal')" title="Uren totaal"></div>
+        <div class="custom-hotspot" id="hotspot-13weken" onclick="goTo('scr-13weken')" title="13 weken gemiddelde"></div>
+
+
+
+        <div class="nav-bar">
+            <div class="hotspot" onclick="goTo('scr-vandaag')"></div>
+            <div class="hotspot" onclick="goTo('scr-depots')"></div>
+            <div class="hotspot" onclick="goTo('scr-rooster')"></div>
+            <div class="hotspot" onclick="goTo('scr-bieden')"></div>
+            <div class="hotspot" onclick="goTo('scr-service')"></div>
+        </div>
+    </div>
+
 
     <div id="scr-kaart" class="screen">
         <img src="img/Kaart.jpeg" alt="Kaart">
@@ -1232,6 +1744,7 @@
     <div id="scr-loopwijzer" class="screen">
         <img src="img/Loopwijzer.jpeg" alt="Loopwijzer">
         <div class="back-icon" onclick="goTo('scr-bieden')" title="Terug naar Bieden"></div>
+        <div class="custom-hotspot" id="hotspot-Kaart536F04" onclick="goTo('scr-kaart')"></div>
         <div class="nav-bar">
             <div class="hotspot" onclick="goTo('scr-vandaag')"></div>
             <div class="hotspot" onclick="goTo('scr-depots')"></div>
@@ -1276,10 +1789,11 @@
 
     <div id="scr-depotvandaag" class="screen">
         <img src="img/Depotvandaag.jpeg" alt="Depot vandaag">
-        <div class="back-icon" onclick="goTo('scr-loopalgestart')"></div>
+        <div class="back-icon" onclick="goTo('scr-loopstarten')"></div>
         
         <div class="custom-hotspot" id="hotspot-depot-contact" onclick="goTo('scr-contact')"></div>
         <div class="custom-hotspot" id="hotspot-depot-kaart" onclick="goTo('scr-vandaagkaart')"></div>
+        <div class="custom-hotspot" id="hotspot-kaart538J03" onclick="goTo('scr-kaart538j08')"></div>
 
         <div class="nav-bar">
             <div class="hotspot" onclick="goTo('scr-vandaag')"></div>
@@ -1290,6 +1804,103 @@
         </div>
     </div>
 
+      <div id="scr-kaart538j08" class="screen">
+        <img src="img/kaart-538J03.jpeg" alt="Depot vandaag">
+        <div class="back-icon" onclick="goTo('scr-depotvandaag')"></div>
+        <div class="custom-hotspot" id="hotspot-loopwijzer538J03" onclick="goTo('scr-loopwijzer538j03')"></div>
+      </div>
+
+      <div id="scr-loopwijzer538j03" class="screen">
+        <img src="img/loopwijzer538j03.jpeg" alt="Depot vandaag">
+        <div class="back-icon" onclick="goTo('scr-depotvandaag')"></div>
+        <div class="custom-hotspot" id="hotspot-kaart538j03-2" onclick="goTo('scr-kaart538j08')"></div>
+
+        <div class="custom-hotspot" id="hotspot-loopwijzer1" onclick="goTo('scr-korenstraat1')"></div>
+        <div class="custom-hotspot" id="hotspot-loopwijzer2" onclick="goTo('scr-korenstraat2')"></div>
+        <div class="custom-hotspot" id="hotspot-loopwijzer3" onclick="goTo('scr-het-erp')"></div>
+        <div class="custom-hotspot" id="hotspot-loopwijzer4" onclick="goTo('scr-urnenveld')"></div>
+        <div class="custom-hotspot" id="hotspot-loopwijzer5" onclick="goTo('scr-urnenveld2')"></div>
+        <div class="custom-hotspot" id="hotspot-loopwijzer6" onclick="goTo('scr-oude-torenweg')"></div>
+      </div>
+    
+    
+        <div id="scr-korenstraat1" class="screen">
+        <img src="img/korenstraat1.jpeg" alt="Depot vandaag">
+        <div class="back-icon" onclick="goTo('scr-loopwijzer538j03')"></div>
+        <div class="custom-hotspot" id="hotspot-korenstraatbewerk" onclick="goTo('scr-korenstraat1-2')"></div>
+        </div>
+
+        <div id="scr-korenstraat1-2" class="screen">
+        <img src="img/korenstraat1-2.jpeg" alt="Depot vandaag">
+        <div class="back-icon" onclick="goTo('scr-korenstraat1')"></div>
+        </div>
+    
+    
+    
+        <div id="scr-korenstraat2" class="screen">
+        <img src="img/korenstraat2.jpeg" alt="Depot vandaag">
+        <div class="back-icon" onclick="goTo('scr-loopwijzer538j03')"></div>
+        <div class="custom-hotspot" id="hotspot-koren2straatbewerk" onclick="goTo('scr-korenstraat2-2')"></div>
+        </div>
+    
+        <div id="scr-korenstraat2-2" class="screen">
+        <img src="img/korenstraat2-2.jpeg" alt="Depot vandaag">
+        <div class="back-icon" onclick="goTo('scr-korenstraat2')"></div>
+        </div>
+
+    
+    
+        <div id="scr-het-erp" class="screen">
+        <img src="img/het-erp1.jpeg" alt="Depot vandaag">
+        <div class="back-icon" onclick="goTo('scr-loopwijzer538j03')"></div>
+        <div class="custom-hotspot" id="hotspot-heterpbewerk" onclick="goTo('scr-het-erp2')"></div>
+        </div>
+
+        <div id="scr-het-erp2" class="screen">
+        <img src="img/het-erp2.jpeg" alt="Depot vandaag">
+        <div class="back-icon" onclick="goTo('scr-het-erp')"></div>
+        </div>
+
+    
+        
+        <div id="scr-urnenveld" class="screen">
+        <img src="img/urnenveld.jpeg" alt="Depot vandaag">
+        <div class="back-icon" onclick="goTo('scr-loopwijzer538j03')"></div>
+        <div class="custom-hotspot" id="hotspot-urenveldbewerk" onclick="goTo('scr-urnenveldbewerk')"></div>
+        </div>
+
+        <div id="scr-urnenveldbewerk" class="screen">
+        <img src="img/urnenveld1-2.jpeg" alt="Depot vandaag">
+        <div class="back-icon" onclick="goTo('scr-urnenveld')"></div>
+        </div>
+    
+    
+
+    
+        <div id="scr-urnenveld2" class="screen">
+        <img src="img/urnenveld2.jpeg" alt="Depot vandaag">
+        <div class="back-icon" onclick="goTo('scr-loopwijzer538j03')"></div>
+        <div class="custom-hotspot" id="hotspot-urenveld2bewerk" onclick="goTo('scr-urnenveld2bewerk')"></div>
+        </div>
+
+        <div id="scr-urnenveld2bewerk" class="screen">
+        <img src="img/urnenveld2-2.jpeg" alt="Depot vandaag">
+        <div class="back-icon" onclick="goTo('scr-urnenveld2')"></div>
+        </div>
+    
+
+
+        <div id="scr-oude-torenweg" class="screen">
+        <img src="img/oude-torenweg.jpeg" alt="Depot vandaag">
+        <div class="back-icon" onclick="goTo('scr-loopwijzer538j03')"></div>
+        <div class="custom-hotspot" id="hotspot-oudetorenbewerk" onclick="goTo('scr-oude-torenweg2')"></div>
+        </div>
+
+        <div id="scr-oude-torenweg2" class="screen">
+        <img src="img/oude-torenweg2.jpeg" alt="Depot vandaag">
+        <div class="back-icon" onclick="goTo('scr-oude-torenweg')"></div>
+        </div>
+    
     <div id="scr-contact" class="screen">
         <img src="img/contact.jpeg" alt="Contact">
         <div class="back-icon" onclick="goBack()"></div>
@@ -1298,6 +1909,7 @@
     <div id="scr-vandaagkaart" class="screen">
         <img src="img/vandaagkaart.jpeg" alt="Vandaag Kaart">
         <div class="back-icon" onclick="goBack()"></div>
+        <div class="custom-hotspot" id="hotspot-loopwijzer538J03" onclick="goTo('scr-loopwijzer538j03')"></div>
     </div>
 
     <div id="scr-retailadres" class="screen">
@@ -1361,13 +1973,126 @@
 
 </div>
 
+
+
 <script>
+    // HIER VOEG JE DE VRAGEN PER SCHERM TOE
+    const faqData = {
+        
+        'scr-vandaag': [
+            { q: "Per ongeluk mijn loop gestopt – hoe kan ik deze hervatten?", a: "Het is niet mogelijk om een gesloten loop opnieuw te openen. <br> <br> Houd zelf bij hoeveel tijd je hebt gelopen en neem contact op met je planner om de gewerkte tijd van de dienst door te geven." },
+            { q: "Er staat voor vandaag geen dienst ingepland", a: " Heeft de planner de dienst ingepland? <br><br> <b> Nee: </b> <br> Planner moet de dienst inplannen in OWS.<br><br><b>Ja:</b><br>Melding doorzetten naar BPC-Productie; zij zullen de dienst via GB-OWS opnieuw publiceren. " }
+        ],
+
+
+        'scr-vrijvragen': [
+            { q: "Mijn MIVT saldo is niet zichtbaar", a: "Je MIVT-saldo is negatief. <br> Hierdoor is het saldo niet zichtbaar in de Mijn Werk app en kun je geen verlof aanvragen via de MIVT-optie. <br><br> Zodra je weer MIVT hebt opgebouwd en je saldo positief is, wordt deze optie automatisch zichtbaar.  <br><br> Ga naar de portal: www.mijnwerk.postnl.nl om te bekijken hoeveel je MIVT-saldo momenteel in de min staat." },
+            
+            { q: "Mijn vakantiesaldo in de app komt niet overeen met het saldo op mijn HR Vakantiekaart", a: " Saldo in de vakantiekaart pas eraf gaat wanneer je van het verlof hebt genoten. <br><br> Die in de Mijn Werk app gaat omlaag zo gauw deze verlof aanvraag is goedgekeurd. <br><br> Er is dus altijd verschil." },
+            
+            { q: "Mijn vakantie/verlof aanvraag is niet zichtbaar in de app", a: " <b>Antwoord 1: </b> <br> De verlofaanvraag is telefonisch doorgegeven en niet via de Mijn Werk app ingediend.<br><br>Hierdoor staat de aanvraag wel in de plannersapplicatie (OWS), maar is deze niet zichtbaar in de Mijn Werk app.<br><br>Het advies is om verlofaanvragen altijd via de Mijn Werk app in te dienen. <br><br> <b>Antwoord 2:</b> <br>De verlofaanvraag is ingediend tijdens een vorig dienstverband. <br> De medewerker had toen een ander PersonID, waardoor er een volledig nieuw account is aangemaakt. <br><br> Salesforce neemt verlofaanvragen niet automatisch over naar een nieuw account. <br> <br> Het is belangrijk dat de medewerker hierover contact opneemt met zijn/haar planner. " }
+        ],
+        
+
+        'scr-service': [
+            { q: "Service", a: "Kies een categorie hieronder om specifieke informatie te zien." }
+        ],
+        
+        'scr-depots': [
+            { q: "Depot gegevens ontbreken / inactive / Oude lopen gekoppeld", a: "Organisatiemodel staat waarschijnlijk leeg in Salesforce. <br><br> Melding doorzetten naar BPC-Productie; <br> BPC zal onder Linked Employees de start- en einddatum van het gekoppelde team controleren en herstellen." },
+            
+            { q: "Ik wil specifieke depots verwijderd hebben uit de Mijn Werk app", a: "Depots zijn gekoppeld aan een team. <br> Als een medewerker onder dit team valt, ziet hij/zij automatisch de bijbehorende depots. <br><br> In de Mijn Werk app  en in Salesforce is het helaas niet mogelijk om specifieke depots per medewerker te filteren." }
+        ],
+
+        'scr-rooster': [
+            { q: "Ik mis een dienst in mijn rooster", a: " Heeft de planner de dienst ingepland? <br><br> <b> Nee: </b> <br> Planner moet de dienst inplannen in OWS.<br><br><b>Ja:</b><br>Melding doorzetten naar BPC-Productie; zij zullen de dienst via GB-OWS opnieuw publiceren. " },
+            
+            { q: "In mijn rooster staat de dienst als ‘Overig’ weergegeven", a: " Melding doorzetten naar BPC-Productie;<br>zij zullen de AC-code herstellen. <br><br> De dienst krijgt weer de juiste naam en medewerkers kunnen de loop weer starten. " },
+            
+            { q: "De knoppen 'Urentotaal' en '13 weken' ontbreken in mijn rooster ", a: "De opties ‘Urentotaal’ en ‘13 weken’ zijn te vinden als je naar vorige weken kijkt. <br><br> Voor de huidige week zijn deze opties niet beschikbaar. <br><br> Ze worden pas toegevoegd bij de start van een nieuwe week. " },
+            
+            { q: "Wanneer wordt mijn nieuwe rooster gepubliceerd voor goedkeuring? ", a: " <b>Postbezorgers:</b> <br> Het nieuwe rooster voor de volgende week wordt <b>donderdag om 18:00 uur </b> gepubliceerd. <br><br> <b>Postbode2 / Voorbereiders:</b> <br> Het nieuwe rooster voor de volgende week wordt <b> vrijdag om 14:00 uur </b> gepubliceerd. " },
+            
+            { q: "In mijn diensten ontbreekt informatie, zoals de dienstnaam, Masterlock-code en afgiftepunten. ", a: "  Zet de melding door naar BPC-Productie.<br><br>BPC-Productie controleert in de inzetplanning aan welk depot deze loop is gekoppeld en controleert of de desbetreffende medewerker hierbij staat.<br><br> BPC voegt de medewerker toe, waarna deze weer alle inhoudelijke gegevens van de dienst/depot kan inzien. " }
+        ],
+
+        'scr-bieden': [
+            { q: "Ik mis open diensten/lopen", a: `
+Ziet de planner de Open Diensten wel in OWS staan?<br><br>
+<b>Nee:</b> <br> Open diensten moeten in OWS beschikbaar zijn in de ‘ballenbak’. Dit regelt de planner.<br><br>
+<b>Ja:</b><br> Melding doorzetten naar BPC-Productie.<br><br>
+
+<details>
+  <summary>Toon stappen voor BPC-Productie</summary>
+  <br>
+  <b>Controle 1:</b> Is de loop/route actief? (Controleer of het vakje Actief in Route Detail is aangevinkt).<br><br>
+  <b>Controle 2:</b> De dienst is gepubliceerd voordat de medewerker in dienst is getreden.<br><br>
+  <b>Controle 3:</b> De dienst is gepubliceerd voordat de medewerker de sharingsrechten voor het depot heeft gekregen.<br><br>
+  <b>Controle 4:</b> Het Organisatiemodel van de medewerker stond leeg toen de open lopen werden gepubliceerd.<br><br>
+  <b>Herstel:</b><br>
+  Open de inzetplanning van deze open lopen.<br>
+  Edit → vink weg Create Planning Proposal → Save → Edit → vink aan Create Planning Proposal → Save.<br>
+  <br> Onder Inzetplanning voorstellen moeten de open lopen weer zichtbaar zijn en ook voor de medewerker in de Mijn Werk app.
+</details>
+`
+}
+            
+        ]
+
+
+
+
+
+        // Voeg hier meer schermen toe: 'id': [{ q: "Vraag", a: "Antwoord" }]
+    };
+
     function goTo(screenId) {
+        // 1. Schermen wisselen
         document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
         const target = document.getElementById(screenId);
         if(target) { 
             target.classList.add('active');
             window.scrollTo(0, 0); 
+        }
+
+        // 2. FAQ Inhoud bijwerken
+        updateFaqContent(screenId);
+    }
+
+    function updateFaqContent(screenId) {
+        const faqSidebar = document.getElementById('faq-sidebar');
+        const faqList = document.getElementById('faq-list');
+        
+        // Verberg FAQ op inlogschermen
+        if (['scr-inloggen', 'scr-kiesserver'].includes(screenId)) {
+            faqSidebar.style.display = 'none';
+            return;
+        }
+
+        faqSidebar.style.display = 'block';
+
+        // Zoek de vragen voor dit scherm. Als ze er niet zijn, toon een standaardtekst.
+        const questions = faqData[screenId] || [{ q: "Algemene info", a: "Voor dit scherm zijn nog geen specifieke vragen toegevoegd." }];
+
+        // Genereer de HTML voor de vragen
+        faqList.innerHTML = questions.map(item => `
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">${item.q}</div>
+                <div class="faq-answer">
+                    <p>${item.a}</p>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    function toggleFaq(element) {
+        const parentItem = element.parentElement;
+        const isOpen = parentItem.classList.contains('open');
+        // Sluit anderen
+        document.querySelectorAll('.faq-item').forEach(item => item.classList.remove('open'));
+        // Open deze
+        if (!isOpen) {
+            parentItem.classList.add('open');
         }
     }
 
@@ -1376,52 +2101,22 @@
         if (!current) return;
         const id = current.id;
         
+        // Jouw bestaande back-logica (ingekort voor overzicht)
         if (id === 'scr-begindatum')                       goTo('scr-vrijvragen');
-        else if (['scr-overdezeapp', 'scr-voorkeuren', 'scr-profieldetails'].includes(id)) 
-                                                           goTo('scr-profiel');
+        else if (['scr-overdezeapp', 'scr-voorkeuren', 'scr-profieldetails'].includes(id)) goTo('scr-profiel');
         else if (id === 'scr-profiel')                     goTo('scr-vandaag');
         else if (id === 'scr-vrijvragen')                  goTo('scr-service');
-        else if (id === 'scr-loopalgestart' || id === 'scr-loopstarten') 
-                                                           goTo('scr-vandaag');
-        else if (id === 'scr-depotvandaag' || id === 'scr-retailadres') 
-                                                           goTo('scr-loopalgestart');
-        else if (['scr-mijn-account', 'scr-mijnhr-1', 'scr-web-1', 
-                  'scr-mijnhr-2', 'scr-web-2', 'scr-web-3', 'scr-web-4'].includes(id)) 
-                                                           goTo('scr-handigelinks');
+        else if (id === 'scr-loopalgestart' || id === 'scr-loopstarten') goTo('scr-vandaag');
+        else if (id === 'scr-depotvandaag' || id === 'scr-retailadres') goTo('scr-loopalgestart');
         else if (id === 'scr-contact')                     goTo('scr-depotvandaag');
         else if (id === 'scr-vandaagkaart')                goTo('scr-depotvandaag');
         else if (id === 'scr-uitloggen')                   goTo('scr-profiel');
         else if (id === 'scr-taken')                       goTo('scr-vandaag');
-        
-        // Depot navigatie
         else if (id === 'scr-depot-1e')                    goTo('scr-depots');
-        // Nieuwe depot schermen terug naar lijst
-        else if (['scr-5384C', 'scr-5386K', 'scr-5388H', 'scr-5391B', 'scr-5397E', 'scr-5398H'].includes(id)) 
-                                                           goTo('scr-depots');
-
         else if (id === 'scr-contact2')                    goTo('scr-contactleiding');
-        else if (id === 'scr-vertrouwenspersonen')         goTo('scr-contactleiding');
-
-        else if (['scr-verlof-goedgekeurd', 'scr-verlof-goedgekeurd2', 'scr-verlof-geannuleerd'].includes(id)) 
-                                                           goTo('scr-vrijvragen');
-
         else if (id === 'scr-inloggen')                    goTo('scr-vandaag');
-        else if (id === 'scr-wachtwoordvergeten')          goTo('scr-inloggen');
-        else if (id === 'scr-kiesserver')                  goTo('scr-inloggen');
-        else if (id === 'scr-navigatie')                   goTo('scr-retailadres');
-
-        // NIEUWE LOGICA VOOR WERKINFORMATIE SUB-PAGINA'S
-        else if (['scr-werkinformatie-1', 'scr-werkinformatie-2', 'scr-werkinformatie-3', 'scr-werkinformatie-4', 'scr-werkinformatie-5'].includes(id))
-                                                           goTo('scr-werkinformatie');
-
-        // NIEUWE LOGICA VOOR BERICHTEN SUB-PAGINA'S
-        else if (['scr-bericht-1', 'scr-bericht-2', 'scr-bericht-3', 'scr-bericht-4', 'scr-bericht-5', 'scr-bericht-6', 'scr-bericht-7'].includes(id))
-                                                           goTo('scr-berichten');
-
-        // NIEUWE LOGICA VOOR BIEDEN
-        else if (id === 'scr-mijnhr-biedingen')            goTo('scr-bieden');
-
-        else                                               goTo('scr-service'); // fallback
+        else if (['scr-werkinformatie-1', 'scr-werkinformatie-2'].includes(id)) goTo('scr-werkinformatie');
+        else goTo('scr-service'); 
     }
 </script>
 </body>
