@@ -805,7 +805,7 @@
             display: none;
             position: fixed;
             top: 50%;
-            left: calc(50% + 250px);
+            left: calc(50% - 250px - 260px); 
             transform: translateY(-50%);
             width: 260px;
             padding: 20px;
@@ -1998,10 +1998,60 @@
             { q: "Service", a: "Kies een categorie hieronder om specifieke informatie te zien." }
         ],
         
+        'scr-plustijdopgeven': [
+            { q: "Plustijd blijft op ‘In behandeling’ staan", a: `
+
+Is er al aan de bezorgcoach gevraagd om de plustijd goed te keuren? <br><br><b>Nee</b><br> Neem contact op met jouw bezorgcoach om je plusuren te laten goedkeuren. <br><br><b>Ja (maar mijn bezorgcoach ziet mijn plusuren niet). <br></b> Zet melding door naar BPC-Productie.<br><br><br>
+
+
+
+<details>
+  <summary>Toon stappen voor BPC-Productie</summary>
+<br>
+<br> <b>1.</b> Zoek in Salesforce naar de betreffende postbezorger. <br>
+<br> <b>2.</b> Ga naar 'Inzetplanning' en open de desbetreffende inzetplanning waarbij de 'Extraminutes Status' nog 'In behandeling' staat. <br>
+<br> <b>3.</b> Controleer via de knop 'Sharing' of wel de juiste Public Group gekoppeld staat. <br>
+<br> <b>4.</b> Als er geen Public Group gekoppeld staat: ga terug naar de Person-pagina van de medewerker en kopieer de waarde uit het veld ‘Teamleider team’. <br>
+<br> <b>5.</b> Ga terug naar de inzetplanning en volg deze stappen: Sharing > Add > plak de waarde van ‘Teamleider team’ > Find > Add > wijzig Access Level naar Read/Write > Save. <br>
+<br> <b>6.</b> De bezorgcoach zou de aanvragen nu via de Salesforce Meer/Minder-pagina moeten kunnen zien. (Controleer dit via de Login-knop.) <br>
+</details>
+`
+},
+         { q: "Wanneer ik op ‘Diensttijd behouden’ klik, blijft de knop ‘Plustijd/mintijd opgeven’ zichtbaar.", a: "Je krijgt nog een melding waarin wordt gevraagd of je de loop echt wilt stoppen, met de toevoeging dat je tot 24 uur na de dienst nog kunt plussen of minnen. <br> De loop wordt vervolgens correct gestopt (bezorgcoach en planner zien de gelopen tijd), maar in de Mijn Werk app blijft de knop ‘Plustijd/min tijd opgeven’ zichtbaar. <br><br>De knop ‘Diensttijd behouden’ verandert de tijd niet; dit is bewust zo ingesteld. Je kunt de diensttijd alleen aanpassen door plus- of minuren op te geven." },
+        
+],
+        
+        
         'scr-depots': [
             { q: "Depot gegevens ontbreken / inactive / Oude lopen gekoppeld", a: "Organisatiemodel staat waarschijnlijk leeg in Salesforce. <br><br> Melding doorzetten naar BPC-Productie; <br> BPC zal onder Linked Employees de start- en einddatum van het gekoppelde team controleren en herstellen." },
             
-            { q: "Ik wil specifieke depots verwijderd hebben uit de Mijn Werk app", a: "Depots zijn gekoppeld aan een team. <br> Als een medewerker onder dit team valt, ziet hij/zij automatisch de bijbehorende depots. <br><br> In de Mijn Werk app  en in Salesforce is het helaas niet mogelijk om specifieke depots per medewerker te filteren." }
+            { q: "Specifieke depots verwijderen uit de Mijn Werk app", a: "Depots zijn gekoppeld aan een team. <br> Als een medewerker onder dit team valt, ziet hij/zij automatisch de bijbehorende depots. <br><br> In de Mijn Werk app  en in Salesforce is het helaas niet mogelijk om specifieke depots per medewerker te filteren." },
+            
+            { q: "Ontbrekende masterlockcode voor depot", a: `
+Indien de masterlockcode ontbreekt voor een specifiek depot in de Mijn Werk app, zet de melding dan door naar BPC-Productie.<br><br>
+
+<details>
+  <summary>Toon stappen voor BPC-Productie</summary>
+  <br>
+  <br>Waarschijnlijk een nieuw depot.<br><br>
+  <br>1. Zoek depot op in Salesforce.<br><br>
+  <br>2. Je ziet depots met dezelfde benaming die eindigen op '(oud)'.<br>
+  <br>3. Kopieer bij deze oude depots de waarde uit het veld ‘Code’. <br>
+  <br>4. Plak deze gegevens in het nieuwe, huidige depot via de volgende stappen: Edit > Plak waarde in veld ‘Code’ > Save.<br>
+  <br>De masterlockcode is nu zichtbaar voor medewerkers in de Mijn Werk app.<br>
+</details>
+`
+}
+            
+        ],
+
+        
+            'scr-berichten': [
+            
+        { q: "Portalbericht - Het is niet toegestaan een pagina te openen van domein (url) ", a: "In de Mijn Werk app zit een beveiligingssysteem dat onbekende URL’s blokkeert. <br> Pagina’s worden geblokkeerd wanneer de doorverwijzingslink niet op de whitelist staat.<br><br>Het is de verantwoordelijkheid van de medewerker die het portalbericht opstelt om te zorgen dat de gebruikte links correct zijn toegestaan.<br><br>Medewerkers kunnen dit melden bij hun Bezorgcoach, die het vervolgens kan doorzetten naar Cluster Besturing.." },
+   
+                
+        { q: "Ik wil een oud portalbericht opnieuw inzien.", a: "Alle portalberichten hebben een startdatum waarop deze zichtbaar worden en een einddatum tot wanneer deze in de Mijn Werk app worden weergegeven.<br><br> Voor inhoudelijke vragen over specifieke portalberichten kan de medewerker contact opnemen met zijn of haar bezorgcoach." }
         ],
 
         'scr-rooster': [
