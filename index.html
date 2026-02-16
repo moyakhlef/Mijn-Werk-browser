@@ -1979,10 +1979,79 @@
     // HIER VOEG JE DE VRAGEN PER SCHERM TOE
     const faqData = {
         
+        
+        'scr-inloggen': [
+
+{
+    q: "Ik kan niet inloggen: Er klopt iets niet. Controleer je e-mailadres en wachtwoord",
+    a: `Meest voorkomende oorzaken:<br>
+
+        <ul>
+            <li>Typfout in het e-mailadres: vaak wordt er automatisch een spatie toegevoegd na een punt op een smartphone. Probeer in dat geval in te loggen met je registernummer /PersonID als gebruikersnaam.</li> <br>
+            <li>De medewerker bevindt zich op het verkeerde inlogscherm. Pas dit aan via de 3 puntjes rechtsboven (of het tandwiel-icoon op iOS) en kies als omgeving: https://postnl.my.salesforce.com</li> <br>
+            <li>Geen internetverbinding. Het is belangrijk dat je een stabiele verbinding hebt om in te kunnen loggen.</li> <br>
+            <li>De medewerker is de gebruikersnaam of het wachtwoord vergeten. Herstel dit via de knop ‘Wachtwoord vergeten’.</li> <br>
+            <li>De medewerker kan eerst proberen in te loggen op www.mijnwerk.postnl.nl
+            <br><br> Als dit daar ook niet lukt, ligt het probleem hoogstwaarschijnlijk bij het invoeren van de gebruikersnaam of het wachtwoord. Als het daar wél lukt, zet de melding dan door naar BPC-Productie voor verdere controle.</li>
+        </ul><br>
+
+        <!-- Collapsible afbeelding -->
+        <details>
+            <summary><b>Voorbeeld foutmelding ‘User is not admin approved’ (klik om te bekijken)</b></summary>
+            <img src="img/wwkloptniet.jpg" style="max-width:100%; border-radius:8px; margin-top:5px;">
+        </details>`
+},
+
+{
+    q: "Ik kan niet inloggen: Overige foutmeldingen.",
+    a: `Meest voorkomende foutmeldingen / oorzaken:<br><br>
+           <b>Foutmelding: <br> Kan geen verbinding maken met Mijn Werk: User is not admin approved to access this app.</b><br>
+        <ul>
+            <li>Account staat Pre-active (controleer IDS). De Mijn Werk-app werkt pas vanaf de startdatum van het dienstverband.</li>
+            <li>Account Owner staat op HVR (controleer Salesforce). Zet de melding door naar BPC-Productie.</li>
+            <li>De functiecode in Salesforce komt niet overeen met de jobcode in IDS. Zet de melding door naar BPC-Productie.</li>
+            <li>Uitzendkracht account mist function code en Function Code Setting. Zet de melding door naar BPC-Productie.</li>
+        </ul><br>
+
+        <!-- Collapsible afbeelding -->
+        <details>
+            <summary><b>Voorbeeld foutmelding ‘User is not admin approved’ (klik om te bekijken)</b></summary>
+            <img src="img/adminapproved.png" style="max-width:100%; border-radius:8px; margin-top:5px;">
+        </details>`
+},
+      ],  
+        
         'scr-vandaag': [
             { q: "Per ongeluk mijn loop gestopt – hoe kan ik deze hervatten?", a: "Het is niet mogelijk om een gesloten loop opnieuw te openen. <br> <br> Houd zelf bij hoeveel tijd je hebt gelopen en neem contact op met je planner om de gewerkte tijd van de dienst door te geven." },
-            { q: "Er staat voor vandaag geen dienst ingepland", a: " Heeft de planner de dienst ingepland? <br><br> <b> Nee: </b> <br> Planner moet de dienst inplannen in OWS.<br><br><b>Ja:</b><br>Melding doorzetten naar BPC-Productie; zij zullen de dienst via GB-OWS opnieuw publiceren. " }
-        ],
+{
+    q: "Er staat voor vandaag geen dienst ingepland",
+    a: `Heeft de planner de dienst ingepland?<br><br>
+        <b>Nee:</b><br>Planner moet de dienst inplannen in OWS.<br><br>
+        <b>Ja:</b><br>Melding doorzetten naar BPC-Productie; zij zullen de dienst via GB-OWS opnieuw publiceren.<br><br>
+
+        <!-- Collapsible afbeelding -->
+        <details>
+            <summary><b> Afbeelding: Geen dienst ingepland vandaag (klik om te bekijken)</b></summary>
+            <img src="img/geendienstvandaag.jpg" style="max-width:100%; border-radius:8px; margin-top:5px;">
+        </details>`
+}
+],
+        
+'scr-loopalgestart': [
+    {
+        q: "Ik kan de loop niet meer stoppen; het scherm is vergrijsd en ik kan nergens meer op klikken",
+        a: `Maakt de medewerker gebruik van een VPN? Controleer de Userpagina in Salesforce of dit het geval is.<br><br>
+        Bij gebruik van een VPN kan het account worden geblokkeerd. Door een recente beveiligingsupdate in Salesforce is toegang via een VPN op mobiele apparaten niet meer toegestaan.<br><br>
+        BPC-Productie kan het account tijdelijk deblokkeren, maar het advies is om geen VPN meer te gebruiken op het toestel en de bijbehorende VPN-app volledig te verwijderen.<br>
+        Als dit opnieuw gebeurt, wordt het account namelijk direct weer gedeactiveerd.<br><br>
+
+        <!-- Collapsible afbeelding -->
+        <details>
+            <summary><b>Afbeelding scherm vergrijsd (klik om te bekijken)</b></summary>
+            <img src="img/grijs.jpg" style="max-width:100%; border-radius:8px; margin-top:5px;">
+        </details>`
+    },
+],
 
 
         'scr-vrijvragen': [
@@ -1993,9 +2062,24 @@
             { q: "Mijn vakantie/verlof aanvraag is niet zichtbaar in de app", a: " <b>Antwoord 1: </b> <br> De verlofaanvraag is telefonisch doorgegeven en niet via de Mijn Werk app ingediend.<br><br>Hierdoor staat de aanvraag wel in de plannersapplicatie (OWS), maar is deze niet zichtbaar in de Mijn Werk app.<br><br>Het advies is om verlofaanvragen altijd via de Mijn Werk app in te dienen. <br><br> <b>Antwoord 2:</b> <br>De verlofaanvraag is ingediend tijdens een vorig dienstverband. <br> De medewerker had toen een ander PersonID, waardoor er een volledig nieuw account is aangemaakt. <br><br> Salesforce neemt verlofaanvragen niet automatisch over naar een nieuw account. <br> <br> Het is belangrijk dat de medewerker hierover contact opneemt met zijn/haar planner. " }
         ],
         
-
-        'scr-service': [
+    'scr-service': [
             { q: "Service", a: "Kies een categorie hieronder om specifieke informatie te zien." }
+        ],
+        
+        'scr-meldingmaken': [
+            { q: "Ik heb een Pushbericht / opmerking ontvangen, maar kan mijn melding niet terugvinden.", a: "Jouw melding staat momenteel open bij een andere afdeling waar je geen inzage in hebt (bijvoorbeeld de afdeling Sorteren). <br><br> Zodra de melding wordt teruggezet naar de afdeling waaronder jij valt, bijvoorbeeld bij jouw bezorgcoach, wordt deze weer voor jou zichtbaar." },
+            { q: "Ik heb een Pushbericht / opmerking ontvangen, maar geen antwoord zichtbaar in mijn gesloten melding", a: "Wel een pushbericht ontvangen dat je melding is gesloten, maar geen opmerking zichtbaar in de Mijn Werk app?<br> Dan is de reactie (vaak van de bezorgcoach) waarschijnlijk niet als ‘openbaar’ gemarkeerd in Salesforce.<br><br>We ontvangen regelmatig signalen van postbezorgers dat meldingen worden afgesloten zonder zichtbare terugkoppeling. <br>Daarom is de werkwijze dat bezorgcoaches hun opmerkingen bij Meldingopmerkingen altijd openbaar maken. <br><br>Informeer je bezorgcoach dat de melding is gesloten zonder zichtbare opmerking, zodat dit alsnog kan worden aangepast." }
+            
+        ],    
+            
+            
+        'scr-voorkeuren': [
+            { q: "Statusverandering Melding: Ik heb een pushbericht / opmerking ontvangen, maar kan mijn melding niet terugvinden.", a: "Jouw melding staat momenteel open bij een andere afdeling waar je geen inzage in hebt (bijvoorbeeld de afdeling Sorteren). <br><br> Zodra de melding wordt teruggezet naar de afdeling waaronder jij valt, bijvoorbeeld bij jouw bezorgcoach, wordt deze weer voor jou zichtbaar." },
+            { q: "Statusverandering Melding: Ik heb een pushbericht / opmerking ontvangen, maar geen antwoord zichtbaar in mijn gesloten melding", a: "Wel een pushbericht ontvangen dat je melding is gesloten, maar geen opmerking zichtbaar in de Mijn Werk app?<br> Dan is de reactie (vaak van de bezorgcoach) waarschijnlijk niet als ‘openbaar’ gemarkeerd in Salesforce.<br><br>We ontvangen regelmatig signalen van postbezorgers dat meldingen worden afgesloten zonder zichtbare terugkoppeling. <br>Daarom is de werkwijze dat bezorgcoaches hun opmerkingen bij Meldingopmerkingen altijd openbaar maken. <br><br>Informeer je bezorgcoach dat de melding is gesloten zonder zichtbare opmerking, zodat dit alsnog kan worden aangepast." },
+            { q: "Depot beleverd: Posttas geleverd op depot, maar geen melding ontvangen", a: "Meest voorkomende oorzaken: <br> <br> <b>1.</b> De pushmelding ‘Depot beleverd’ staat uit in de Mijn Werk app.  <br>Zet deze aan via Profiel (rechtsboven) > Voorkeuren > schakelaar bij ‘Depot beleverd’. <br><br> <b>2.</b> De chauffeur heeft de posttas wel bij het depot geleverd, maar deze niet gescand of er zijn synchronisatieproblemen (bijvoorbeeld een vertraging van meer dan 15 minuten tussen scannen en synchroniseren). In dat geval wordt er geen pushmelding verstuurd. <br><br>Dit is geen IT-probleem, maar eerder een logistiek proces dat mogelijk niet correct is uitgevoerd. <br> Verbeterpunten voor dit proces kun je bespreken met je bezorgcoach. " },
+            { q: "Depot beleverd: Posttas geleverd op depot maar melding komt laat binnen ", a: "Meest voorkomende oorzaken:<br> <br><b>1.</b> De chauffeur heeft de posttas pas laat gescand; daardoor wordt het pushbericht ook later verstuurd.<br><br><b>2.</b> De pushberichten worden verstuurd via Google Firebase (cloud messagingdienst). Als deze dienst vertraging heeft, komt het pushbericht ook later aan. Vanuit BPC-Productie hebben wij hier helaas geen invloed op." }
+
+
         ],
         
         'scr-plustijdopgeven': [
@@ -2027,6 +2111,11 @@ Is er al aan de bezorgcoach gevraagd om de plustijd goed te keuren? <br><br><b>N
             
             { q: "Specifieke depots verwijderen uit de Mijn Werk app", a: "Depots zijn gekoppeld aan een team. <br> Als een medewerker onder dit team valt, ziet hij/zij automatisch de bijbehorende depots. <br><br> In de Mijn Werk app  en in Salesforce is het helaas niet mogelijk om specifieke depots per medewerker te filteren." },
             
+            { q: "Posttas geleverd op depot, maar geen melding ontvangen", a: "Meest voorkomende oorzaken: <br> <br> <b>1.</b> De pushmelding ‘Depot beleverd’ staat uit in de Mijn Werk app.  <br>Zet deze aan via Profiel (rechtsboven) > Voorkeuren > schakelaar bij ‘Depot beleverd’. <br><br> <b>2.</b> De chauffeur heeft de posttas wel bij het depot geleverd, maar deze niet gescand of er zijn synchronisatieproblemen (bijvoorbeeld een vertraging van meer dan 15 minuten tussen scannen en synchroniseren). In dat geval wordt er geen pushmelding verstuurd. <br><br>Dit is geen IT-probleem, maar eerder een logistiek proces dat mogelijk niet correct is uitgevoerd. <br> Verbeterpunten voor dit proces kun je bespreken met je bezorgcoach. " },
+            
+            { q: "Posttas geleverd op depot maar melding komt laat binnen ", a: "Meest voorkomende oorzaken:<br> <br><b>1.</b> De chauffeur heeft de posttas pas laat gescand; daardoor wordt het pushbericht ook later verstuurd.<br><br><b>2.</b> De pushberichten worden verstuurd via Google Firebase (cloud messagingdienst). Als deze dienst vertraging heeft, komt het pushbericht ook later aan. Vanuit BPC-Productie hebben wij hier helaas geen invloed op." },
+
+            
             { q: "Ontbrekende masterlockcode voor depot", a: `
 Indien de masterlockcode ontbreekt voor een specifiek depot in de Mijn Werk app, zet de melding dan door naar BPC-Productie.<br><br>
 
@@ -2051,20 +2140,70 @@ Indien de masterlockcode ontbreekt voor een specifiek depot in de Mijn Werk app,
         { q: "Portalbericht - Het is niet toegestaan een pagina te openen van domein (url) ", a: "In de Mijn Werk app zit een beveiligingssysteem dat onbekende URL’s blokkeert. <br> Pagina’s worden geblokkeerd wanneer de doorverwijzingslink niet op de whitelist staat.<br><br>Het is de verantwoordelijkheid van de medewerker die het portalbericht opstelt om te zorgen dat de gebruikte links correct zijn toegestaan.<br><br>Medewerkers kunnen dit melden bij hun Bezorgcoach, die het vervolgens kan doorzetten naar Cluster Besturing.." },
    
                 
-        { q: "Ik wil een oud portalbericht opnieuw inzien.", a: "Alle portalberichten hebben een startdatum waarop deze zichtbaar worden en een einddatum tot wanneer deze in de Mijn Werk app worden weergegeven.<br><br> Voor inhoudelijke vragen over specifieke portalberichten kan de medewerker contact opnemen met zijn of haar bezorgcoach." }
+        { q: "Oud portalbericht niet meer zichtbaar.", a: "Alle portalberichten hebben een startdatum waarop deze zichtbaar worden en een einddatum tot wanneer deze in de Mijn Werk app worden weergegeven.<br><br> Voor inhoudelijke vragen over specifieke portalberichten kan de medewerker contact opnemen met zijn of haar bezorgcoach." }
         ],
 
         'scr-rooster': [
             { q: "Ik mis een dienst in mijn rooster", a: " Heeft de planner de dienst ingepland? <br><br> <b> Nee: </b> <br> Planner moet de dienst inplannen in OWS.<br><br><b>Ja:</b><br>Melding doorzetten naar BPC-Productie; zij zullen de dienst via GB-OWS opnieuw publiceren. " },
             
-            { q: "In mijn rooster staat de dienst als ‘Overig’ weergegeven", a: " Melding doorzetten naar BPC-Productie;<br>zij zullen de AC-code herstellen. <br><br> De dienst krijgt weer de juiste naam en medewerkers kunnen de loop weer starten. " },
+            {
+        q: "In mijn rooster staat de dienst als ‘Overig’ weergegeven",
+        a: `Melding doorzetten naar BPC-Productie;<br>
+        zij zullen de AC-code herstellen.<br><br>
+        De dienst krijgt weer de juiste naam en medewerkers kunnen de loop weer starten.<br><br>
+
+        <!-- Collapsible afbeelding -->
+        <details>
+            <summary><b>Afbeelding rooster dienst ‘Overig’ (klik om te bekijken)</b></summary>
+            <img src="img/roosteroverig.jpg" style="max-width:100%; border-radius:8px; margin-top:5px;">
+        </details>`
+            },
             
-            { q: "De knoppen 'Urentotaal' en '13 weken' ontbreken in mijn rooster ", a: "De opties ‘Urentotaal’ en ‘13 weken’ zijn te vinden als je naar vorige weken kijkt. <br><br> Voor de huidige week zijn deze opties niet beschikbaar. <br><br> Ze worden pas toegevoegd bij de start van een nieuwe week. " },
             
-            { q: "Wanneer wordt mijn nieuwe rooster gepubliceerd voor goedkeuring? ", a: " <b>Postbezorgers:</b> <br> Het nieuwe rooster voor de volgende week wordt <b>donderdag om 18:00 uur </b> gepubliceerd. <br><br> <b>Postbode2 / Voorbereiders:</b> <br> Het nieuwe rooster voor de volgende week wordt <b> vrijdag om 14:00 uur </b> gepubliceerd. " },
             
-            { q: "In mijn diensten ontbreekt informatie, zoals de dienstnaam, Masterlock-code en afgiftepunten. ", a: "  Zet de melding door naar BPC-Productie.<br><br>BPC-Productie controleert in de inzetplanning aan welk depot deze loop is gekoppeld en controleert of de desbetreffende medewerker hierbij staat.<br><br> BPC voegt de medewerker toe, waarna deze weer alle inhoudelijke gegevens van de dienst/depot kan inzien. " }
-        ],
+{
+    q: "De knoppen 'Urentotaal' en '13 weken' ontbreken in mijn rooster",
+    a: `De opties ‘Urentotaal’ en ‘13 weken’ zijn te vinden als je naar vorige weken kijkt.<br><br>
+        Voor de huidige week zijn deze opties niet beschikbaar.<br><br>
+        Ze worden pas toegevoegd bij de start van een nieuwe week.<br><br>
+
+        <!-- Collapsible afbeelding -->
+        <details>
+            <summary><b>Afbeelding Uitleg Urentotaal en 13 weken (klik om te bekijken)</b></summary>
+            <img src="img/urentotaaluitleg.jpg" style="max-width:100%; border-radius:8px; margin-top:5px;">
+        </details>`
+},            
+
+{
+    q: "Wanneer wordt mijn nieuwe rooster gepubliceerd voor goedkeuring?",
+    a: `<b>Postbezorgers:</b><br>
+        Het nieuwe rooster voor de volgende week wordt <b>donderdag om 18:00 uur</b> gepubliceerd.<br><br>
+        <b>Postbode2 / Voorbereiders:</b><br>
+        Het nieuwe rooster voor de volgende week wordt <b>vrijdag om 14:00 uur</b> gepubliceerd.<br><br>
+        Medewerkers kunnen het rooster dan goedkeuren of weigeren, inclusief het indienen van een bezwaar.
+
+        <!-- Collapsible afbeelding -->
+        <details>
+            <summary><b> Afbeelding nieuwe roosterpublicatie (klik om te bekijken)</b></summary>
+            <img src="img/nieuweroosterpublicatie.jpg" style="max-width:100%; border-radius:8px; margin-top:5px;">
+        </details>`
+},            
+
+
+{
+    q: "In mijn diensten ontbreekt informatie, zoals de dienstnaam, Masterlock-code en afgiftepunten.",
+    a: `Zet de melding door naar BPC-Productie.<br><br>
+        BPC-Productie controleert in de inzetplanning aan welk depot deze loop is gekoppeld en of de desbetreffende medewerker hierbij staat.<br><br>
+        BPC voegt de medewerker toe, waarna deze weer alle inhoudelijke gegevens van de dienst/depot kan inzien.<br><br>
+
+        <!-- Collapsible afbeelding -->
+        <details>
+            <summary><b>Voorbeeld ontbrekende informatie (klik om te bekijken)</b></summary>
+            <img src="img/Ontbreektinformatie.jpg" style="max-width:100%; border-radius:8px; margin-top:5px;">
+        </details>`
+}        
+
+],
 
         'scr-bieden': [
             { q: "Ik mis open diensten/lopen", a: `
@@ -2114,7 +2253,7 @@ Ziet de planner de Open Diensten wel in OWS staan?<br><br>
         const faqList = document.getElementById('faq-list');
         
         // Verberg FAQ op inlogschermen
-        if (['scr-inloggen', 'scr-kiesserver'].includes(screenId)) {
+        if (['scr-'].includes(screenId)) {
             faqSidebar.style.display = 'none';
             return;
         }
