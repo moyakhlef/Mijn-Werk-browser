@@ -835,6 +835,8 @@
         }
 
         /* FAQ SIDEBAR STYLING */
+/* De hoofdcontainer van de FAQ */
+/* FAQ SIDEBAR STYLING */
 .faq-sidebar {
     display: none; 
     position: fixed;
@@ -846,10 +848,49 @@
     border-radius: 10px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.1);
     z-index: 1000;
-    overflow: hidden;
     font-family: 'Arial', sans-serif;
     border-left: 6px solid #ff7300;
+
+    /* !!! DEZE REGELS ZIJN NIEUW EN CRUCIAAL !!! */
+    max-height: 85vh;    /* Voorkomt dat de box langer wordt dan het scherm */
+    display: flex;       /* Nodig om de inhoud intern te laten scrollen */
+    flex-direction: column;
+    overflow: hidden;    /* Houdt de ronde hoeken netjes */
 }
+
+/* !!! DIT IS EEN NIEUWE CLASS VOOR DE INHOUD !!! */
+.faq-content {
+    overflow-y: auto;    /* Zorgt voor de scrollbalk BINNEN de box */
+    flex-grow: 1;        /* Vult de box op */
+    padding-bottom: 10px;
+    scrollbar-width: thin; /* Voor Firefox */
+}
+.faq-answer img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+/* Mooie dunne scrollbalk voor Chrome/Edge/Safari */
+.faq-content::-webkit-scrollbar {
+    width: 6px;
+}
+.faq-content::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+}
+
+.faq-header {
+    background-color: #f9f9f9;
+    padding: 15px 20px;
+    border-bottom: 1px solid #eee;
+    color: #333;
+    font-size: 18px;
+    font-weight: bold;
+    flex-shrink: 0; /* Zorgt dat de header niet wegscrolt */
+}
+        
+        
 /* Het plus-icoontje */
 .faq-question::after { 
     content: '+'; 
@@ -925,10 +966,11 @@
 
     
 <div class="faq-sidebar" id="faq-sidebar">
-    <div class="faq-header">Veelgestelde vragen</div>
-    <div class="faq-content" id="faq-list">
+        <div class="faq-header">Veelgestelde vragen</div>
+        <div class="faq-content">
+            <div id="faq-list"></div>
         </div>
-</div>
+    </div>
     
     <div id="scr-vandaag" class="screen active">
         <img src="img/Vandaag.jpeg" alt="Vandaag">
@@ -2236,52 +2278,37 @@ Ziet de planner de Open Diensten wel in OWS staan?<br><br>
     };
 
     function goTo(screenId) {
-        // 1. Schermen wisselen
-        document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+        // Verberg alle schermen
+        const screens = document.querySelectorAll('.screen');
+        screens.forEach(s => s.classList.remove('active'));
+
+        // Toon doel scherm
         const target = document.getElementById(screenId);
-        if(target) { 
-            target.classList.add('active');
-            window.scrollTo(0, 0); 
-        }
+        if (target) target.classList.add('active');
 
-        // 2. FAQ Inhoud bijwerken
-        updateFaqContent(screenId);
-    }
-
-    function updateFaqContent(screenId) {
-        const faqSidebar = document.getElementById('faq-sidebar');
+        // FAQ Logica
+        const items = faqData[screenId] || [];
         const faqList = document.getElementById('faq-list');
-        
-        // Verberg FAQ op inlogschermen
-        if (['scr-'].includes(screenId)) {
+        const faqSidebar = document.getElementById('faq-sidebar');
+
+        if (items.length > 0) {
+            faqSidebar.style.display = 'flex'; // Gebruik flex voor correcte verdeling
+            faqList.innerHTML = ''; 
+          items.forEach(item => {
+                const div = document.createElement('div');
+                div.className = 'faq-item';
+                div.innerHTML = `
+                    <div class="faq-question" onclick="toggleFaqItem(this)">
+                        ${item.q}
+                    </div>
+                    <div class="faq-answer">
+                        <p>${item.a}</p>
+                    </div>
+                `;
+                faqList.appendChild(div);
+            });
+        } else {
             faqSidebar.style.display = 'none';
-            return;
-        }
-
-        faqSidebar.style.display = 'block';
-
-        // Zoek de vragen voor dit scherm. Als ze er niet zijn, toon een standaardtekst.
-        const questions = faqData[screenId] || [{ q: "Algemene info", a: "Voor dit scherm zijn nog geen specifieke vragen toegevoegd." }];
-
-        // Genereer de HTML voor de vragen
-        faqList.innerHTML = questions.map(item => `
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">${item.q}</div>
-                <div class="faq-answer">
-                    <p>${item.a}</p>
-                </div>
-            </div>
-        `).join('');
-    }
-
-    function toggleFaq(element) {
-        const parentItem = element.parentElement;
-        const isOpen = parentItem.classList.contains('open');
-        // Sluit anderen
-        document.querySelectorAll('.faq-item').forEach(item => item.classList.remove('open'));
-        // Open deze
-        if (!isOpen) {
-            parentItem.classList.add('open');
         }
     }
 
@@ -2290,22 +2317,45 @@ Ziet de planner de Open Diensten wel in OWS staan?<br><br>
         if (!current) return;
         const id = current.id;
         
-        // Jouw bestaande back-logica (ingekort voor overzicht)
-        if (id === 'scr-begindatum')                       goTo('scr-vrijvragen');
+        if (id === 'scr-begindatum') goTo('scr-vrijvragen');
         else if (['scr-overdezeapp', 'scr-voorkeuren', 'scr-profieldetails'].includes(id)) goTo('scr-profiel');
-        else if (id === 'scr-profiel')                     goTo('scr-vandaag');
-        else if (id === 'scr-vrijvragen')                  goTo('scr-service');
+        else if (id === 'scr-profiel') goTo('scr-vandaag');
+        else if (id === 'scr-vrijvragen') goTo('scr-service');
         else if (id === 'scr-loopalgestart' || id === 'scr-loopstarten') goTo('scr-vandaag');
         else if (id === 'scr-depotvandaag' || id === 'scr-retailadres') goTo('scr-loopalgestart');
-        else if (id === 'scr-contact')                     goTo('scr-depotvandaag');
-        else if (id === 'scr-vandaagkaart')                goTo('scr-depotvandaag');
-        else if (id === 'scr-uitloggen')                   goTo('scr-profiel');
-        else if (id === 'scr-taken')                       goTo('scr-vandaag');
-        else if (id === 'scr-depot-1e')                    goTo('scr-depots');
-        else if (id === 'scr-contact2')                    goTo('scr-contactleiding');
-        else if (id === 'scr-inloggen')                    goTo('scr-vandaag');
-        else if (['scr-werkinformatie-1', 'scr-werkinformatie-2'].includes(id)) goTo('scr-werkinformatie');
-        else goTo('scr-service'); 
+        else if (id === 'scr-contact' || id === 'scr-vandaagkaart') goTo('scr-depotvandaag');
+        else if (id === 'scr-uitloggen') goTo('scr-profiel');
+        else if (id === 'scr-taken') goTo('scr-vandaag');
+        else if (id === 'scr-depot-1e') goTo('scr-depots');
+        else if (id === 'scr-contact2') goTo('scr-contactleiding');
+        else if (id === 'scr-inloggen') goTo('scr-vandaag');
+        else if (id === 'scr-werkinformatie') goTo('scr-service');
+        else if (id.startsWith('scr-werkinformatie-')) goTo('scr-werkinformatie');
+        else if (id.startsWith('scr-bericht-')) goTo('scr-berichten');
+        else if (id === 'scr-berichten') goTo('scr-service');
+        else if (id.endsWith('-contact')) goTo('scr-depots');
+        else {
+            const navItems = ['scr-vandaag', 'scr-depots', 'scr-rooster', 'scr-bieden', 'scr-service'];
+            if (!navItems.includes(id)) goTo('scr-vandaag');
+        }
+    }
+
+    window.onload = function() {
+        goTo('scr-vandaag');
+    };
+    
+    function toggleFaqItem(element) {
+        const parent = element.parentElement;
+        const isOpen = parent.classList.contains('open');
+
+        // 1. Sluit alle andere FAQ items
+        const allItems = document.querySelectorAll('.faq-item');
+        allItems.forEach(item => item.classList.remove('open'));
+
+        // 2. Als het item nog niet open was, open het dan nu
+        if (!isOpen) {
+            parent.classList.add('open');
+        }
     }
 </script>
 </body>
